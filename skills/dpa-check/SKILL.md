@@ -21,20 +21,20 @@ Accept the DPA in one of these forms:
 
 If the user has not yet provided the contract, ask them to upload or paste it.
 
-### Question 2 — Third-Country Nexus
+### Question 2 — User's Role
+
+Ask: **What is your role in relation to this agreement — are you the controller (customer) or the processor (software provider)?**
+
+- **controller** — The user is the customer commissioning data processing. Frame findings and recommendations from the controller's perspective (e.g., "the agreement does not sufficiently protect your interests as controller").
+- **processor** — The user is the service provider processing data on behalf of the controller. Frame findings and recommendations from the processor's perspective (e.g., "the agreement imposes obligations that may need clarification on your side as processor").
+
+### Question 3 — Third-Country Nexus
 
 Ask: **Is there a third-country nexus?** (Processing or sub-processors outside the EEA)
 
 - **yes** — Apply enhanced scrutiny to DPA-02 (third-country transfer instruction binding) and DPA-05 (third-country sub-processors and safeguards)
 - **no** — Standard assessment
 - **unsure** — Treat as "yes" for assessment purposes
-
-### Question 3 — Report Language
-
-Ask: **Report language?**
-
-- **de** (default) — All output in German
-- **en** — All output in English
 
 Once all three inputs are available, proceed to Phase 2.
 
@@ -72,21 +72,53 @@ For each check point, produce:
 
 ## PHASE 3: Output
 
-Generate the report in the language specified by the user (de/en).
+Generate the report in English.
 
 ### Report Structure
 
 ```
 ## DPA Quick Check — Art. 28 GDPR
 
-**Document:** [title from contract]
-**Parties:** [Controller ↔ Processor]
 **Date:** [current date]
 **Assessed:** 9 check points (Art. 28 GDPR mandatory contents)
 
+---
+
+## 🔴 Critical
+
+**DPA-XX — [Title]**
+
+- [Finding as bullet point — core issue with clause reference]
+- [Additional finding if applicable]
+
+**Recommendation:** [1 sentence — action needed]
+
+[If no RED items: "No critical findings."]
+
+---
+
+## 🟡 Action Needed
+
+**DPA-XX — [Title]**
+
+- [Finding as bullet point — core issue with clause reference]
+- [Additional finding if applicable]
+
+**Recommendation:** [1 sentence — action needed]
+
+[If no YELLOW items: "No findings requiring action."]
+
+---
+
+## 🟢 Requirement Met
+
+[List GREEN check point IDs and titles only. No reasoning needed. If no GREEN items: omit this section.]
+
+---
+
 ### Result
 
-| # | Check Point | Art. 28 | Assessment |
+| # | Check Point | Art. 28 GDPR | Assessment |
 |---|-------------|---------|------------|
 | DPA-01 | Written Form and Mandatory Contract Contents | Para. 9, Para. 3 sent. 1 | 🟢/🟡/🔴 |
 | DPA-02 | Documented Instructions | Para. 3 lit. a, sent. 3 | 🟢/🟡/🔴 |
@@ -98,17 +130,11 @@ Generate the report in the language specified by the user (de/en).
 | DPA-08 | Deletion and Return | Para. 3 lit. g | 🟢/🟡/🔴 |
 | DPA-09 | Accountability and Audit | Para. 3 lit. h | 🟢/🟡/🔴 |
 
-**Summary:** [2-3 sentences: overall impression, most critical findings, recommended action]
-
-### Findings
-
-[YELLOW and RED only — for each finding: check point ID, 2-3 sentences with clause reference, 1-sentence recommendation]
+---
 
 ### Note
 
-This quick check covers the 9 mandatory contents of Art. 28 GDPR.
-Additional contractual best practices (liability, special termination,
-DPO designation, data location, etc.) are not part of this check.
+This quick check covers the 9 mandatory contents of Art. 28 GDPR. Additional contractual best practices (liability, special termination, DPO designation, data location, etc.) are not part of this check.
 ```
 
 ### Report Formatting Rules
@@ -117,40 +143,8 @@ DPO designation, data location, etc.) are not part of this check.
 - Reference clauses by chapter, section, or paragraph heading — NEVER by page number
 - Do not add general GDPR explanations beyond the assessment
 - Do not invent issues not found during assessment
-- Findings section: Only list YELLOW and RED items. If all check points are GREEN, state "No findings."
+- Group by severity as h2 headings: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met. GREEN items are listed by ID and title only, without reasoning.
+- Use horizontal rules (---) between major sections for clear visual separation
+- The Result table with all 9 check points goes at the bottom, before the Note
+- Do not include company name, document title, or party names in the header — only date and scope
 
-### German Translations (when language = "de")
-
-Use these translations for all report elements:
-
-- "DPA Quick Check" → "AVV-Schnellprüfung"
-- "Result" → "Ergebnis"
-- "Check Point" → "Prüfpunkt"
-- "Assessment" → "Bewertung"
-- "Summary" → "Zusammenfassung"
-- "Findings" → "Feststellungen"
-- "Note" → "Hinweis"
-- "Document" → "Dokument"
-- "Parties" → "Parteien"
-- "Date" → "Datum"
-- "Assessed" → "Geprüft"
-- "GREEN" → "GRÜN"
-- "YELLOW" → "GELB"
-- "RED" → "ROT"
-- "Requirement met" → "Anforderung erfüllt"
-- "Action needed" → "Handlungsbedarf"
-- "Critical" → "Kritisch"
-- "Clause Reference" → "Vertragsreferenz"
-- "Not found" → "Nicht gefunden"
-- "Reasoning" → "Begründung"
-- "Recommendation" → "Empfehlung"
-- "No findings." → "Keine Feststellungen."
-- "Written Form and Mandatory Contract Contents" → "Schriftform und Vertragspflichtinhalte"
-- "Documented Instructions" → "Weisungsgebundenheit"
-- "Confidentiality" → "Vertraulichkeit"
-- "Technical and Organizational Measures" → "Technische und organisatorische Maßnahmen"
-- "Sub-Processors" → "Unterauftragnehmer"
-- "Data Subject Rights Assistance" → "Unterstützung Betroffenenrechte"
-- "Security and Notification Obligations" → "Sicherheits- und Meldepflichten"
-- "Deletion and Return" → "Löschung und Rückgabe"
-- "Accountability and Audit" → "Nachweis und Überprüfung"

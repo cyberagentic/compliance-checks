@@ -61,39 +61,65 @@ Generate the report in English.
 ```
 ## TOM Quick Check — Art. 32 GDPR
 
-**Document:** [title from document]
-**Organization:** [organization name if identifiable]
 **Date:** [current date]
 **Assessed:** 12 check points (Technical and Organizational Measures)
 
+---
+
+## 🔴 Critical
+
+**TOM-XX — [Title]**
+
+- [Finding as bullet point — core issue with document reference]
+- [Additional finding if applicable]
+
+**Recommendation:** [1 sentence — action needed]
+
+[If no RED items: "No critical findings."]
+
+---
+
+## 🟡 Action Needed
+
+**TOM-XX — [Title]**
+
+- [Finding as bullet point — core issue with document reference]
+- [Additional finding if applicable]
+
+**Recommendation:** [1 sentence — action needed]
+
+[If no YELLOW items: "No findings requiring action."]
+
+---
+
+## 🟢 Requirement Met
+
+[List GREEN check point IDs and titles only. No reasoning needed. If no GREEN items: omit this section.]
+
+---
+
 ### Result
 
-| # | Check Point | Assessment |
-|---|-------------|------------|
-| TOM-01 | Physical Security | 🟢/🟡/🔴 |
-| TOM-02 | Access Control & Authentication | 🟢/🟡/🔴 |
-| TOM-03 | Access Rights Management | 🟢/🟡/🔴 |
-| TOM-04 | Separation Control | 🟢/🟡/🔴 |
-| TOM-05 | Encryption & Pseudonymization | 🟢/🟡/🔴 |
-| TOM-06 | Integrity & Transfer Security | 🟢/🟡/🔴 |
-| TOM-07 | Availability & Recovery | 🟢/🟡/🔴 |
-| TOM-08 | Incident Management & Reporting | 🟢/🟡/🔴 |
-| TOM-09 | Review & Continuous Improvement | 🟢/🟡/🔴 |
-| TOM-10 | Supplier & Processor Control | 🟢/🟡/🔴 |
-| TOM-11 | Deletion & Storage Limitation | 🟢/🟡/🔴 |
-| TOM-12 | Data Protection Organization, Training & Certification | 🟢/🟡/🔴 |
+| # | Check Point | GDPR Reference | Assessment |
+|---|-------------|----------------|------------|
+| TOM-01 | Data Protection Organization, Training & Certification | Art. 25, 32, 37–39 | 🟢/🟡/🔴 |
+| TOM-02 | Supplier & Processor Control | Art. 28, 32(1)(b) | 🟢/🟡/🔴 |
+| TOM-03 | Incident Management & Reporting | Art. 32(1)(b), 33, 34 | 🟢/🟡/🔴 |
+| TOM-04 | Review & Continuous Improvement | Art. 32(1)(d) | 🟢/🟡/🔴 |
+| TOM-05 | Physical Security | Art. 32(1)(b) | 🟢/🟡/🔴 |
+| TOM-06 | Access Control & Authentication | Art. 32(1)(b) | 🟢/🟡/🔴 |
+| TOM-07 | Access Rights Management | Art. 32(1)(b) | 🟢/🟡/🔴 |
+| TOM-08 | Separation Control | Art. 32(1)(b) | 🟢/🟡/🔴 |
+| TOM-09 | Encryption & Pseudonymization | Art. 32(1)(a) | 🟢/🟡/🔴 |
+| TOM-10 | Integrity & Transfer Security | Art. 32(1)(b) | 🟢/🟡/🔴 |
+| TOM-11 | Availability & Recovery | Art. 32(1)(b),(c) | 🟢/🟡/🔴 |
+| TOM-12 | Deletion & Storage Limitation | Art. 5(1)(e), 17, 32 | 🟢/🟡/🔴 |
 
-**Summary:** [2-3 sentences: overall impression, most critical findings, recommended action]
-
-### Findings
-
-[YELLOW and RED only — for each finding: check point ID, 2-3 sentences with document reference, 1-sentence recommendation]
+---
 
 ### Note
 
-This quick check covers 12 key areas of technical and organizational
-measures. It assesses whether the documentation adequately addresses
-each area — it does not substitute for an on-site security audit.
+This quick check covers 12 key areas of technical and organizational measures. It assesses whether the documentation adequately addresses each area — it does not substitute for an on-site security audit.
 ```
 
 ### Report Formatting Rules
@@ -102,4 +128,7 @@ each area — it does not substitute for an on-site security audit.
 - Reference sections by heading, chapter, or paragraph — NEVER by page number
 - Do not add general GDPR or security explanations beyond the assessment
 - Do not invent issues not found during assessment
-- Findings section: Only list YELLOW and RED items. If all check points are GREEN, state "No findings."
+- Group by severity as h2 headings: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met. GREEN items are listed by ID and title only, without reasoning.
+- Use horizontal rules (---) between major sections for clear visual separation
+- The Result table with all 12 check points goes at the bottom, before the Note
+- Do not include organization name, company name, or document title in the header — only date and scope
