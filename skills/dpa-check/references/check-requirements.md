@@ -8,11 +8,11 @@ Each check point maps directly to Art. 28 GDPR. The check uses a 3-level traffic
 - **🟡 YELLOW** — Action needed — clause present but incomplete
 - **🔴 RED** — Critical — clause missing or contradicts requirements
 
-Third-country nexus (intake question 2) controls assessment depth for CHK-02 and CHK-05.
+Third-country nexus (intake question 2) controls assessment depth for DPA-02 and DPA-05.
 
 ---
 
-## CHK-01 — Written Form and Mandatory Contract Contents
+## DPA-01 — Written Form and Mandatory Contract Contents
 
 - **Legal Basis:** Art. 28(9), Art. 28(3) sentence 1
 - **Mapped IDs:** DPA-01, DPA-02, DPA-03, DPA-04, DPA-05, DPA-06
@@ -34,7 +34,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-02 — Documented Instructions
+## DPA-02 — Documented Instructions
 
 - **Legal Basis:** Art. 28(3)(a), Art. 28(3) sentence 3
 - **Mapped IDs:** DPA-07, DPA-08
@@ -55,7 +55,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-03 — Confidentiality
+## DPA-03 — Confidentiality
 
 - **Legal Basis:** Art. 28(3)(b)
 - **Mapped IDs:** DPA-09
@@ -74,7 +74,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-04 — Technical and Organizational Measures
+## DPA-04 — Technical and Organizational Measures
 
 - **Legal Basis:** Art. 28(3)(c), Art. 32 GDPR
 - **Mapped IDs:** DPA-10
@@ -94,7 +94,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-05 — Sub-Processors
+## DPA-05 — Sub-Processors
 
 - **Legal Basis:** Art. 28(2), Art. 28(3)(d), Art. 28(4)
 - **Mapped IDs:** DPA-12, DPA-13
@@ -115,7 +115,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-06 — Data Subject Rights Assistance
+## DPA-06 — Data Subject Rights Assistance
 
 - **Legal Basis:** Art. 28(3)(e)
 - **Mapped IDs:** DPA-15
@@ -134,7 +134,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-07 — Security and Notification Obligations
+## DPA-07 — Security and Notification Obligations
 
 - **Legal Basis:** Art. 28(3)(f), Art. 32–36 GDPR
 - **Mapped IDs:** DPA-16, DPA-17
@@ -153,7 +153,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-08 — Deletion and Return
+## DPA-08 — Deletion and Return
 
 - **Legal Basis:** Art. 28(3)(g)
 - **Mapped IDs:** DPA-18
@@ -173,7 +173,7 @@ Third-country nexus (intake question 2) controls assessment depth for CHK-02 and
 
 ---
 
-## CHK-09 — Accountability and Audit
+## DPA-09 — Accountability and Audit
 
 - **Legal Basis:** Art. 28(3)(h)
 - **Mapped IDs:** DPA-20, DPA-21

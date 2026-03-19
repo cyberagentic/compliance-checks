@@ -1,0 +1,206 @@
+# TOM Quick Check — Requirements Catalog (12 Check Points)
+
+## How to use this reference
+
+Each check point assesses whether the key areas of technical and organizational measures are addressed and adequately described. The check uses a 3-level traffic light scale:
+
+- **🟢 GREEN** — Requirement met
+- **🟡 YELLOW** — Action needed — topic addressed but incomplete or too generic
+- **🔴 RED** — Critical — topic missing or not discernibly regulated
+
+---
+
+## TOM-01 — Physical Security
+
+### Review Criteria
+
+1. Are measures for the physical protection of premises and facilities described?
+2. Is access to security-critical areas regulated?
+3. Are protective measures against physical and environmental threats specified?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Physical security measures concretely described, access restrictions and environmental threat protection addressed.
+- **🟡 YELLOW:** Physical security mentioned but key aspects missing or described only in general terms.
+- **🔴 RED:** No information on physical security.
+
+---
+
+## TOM-02 — Access Control & Authentication
+
+### Review Criteria
+
+1. Are measures described that restrict logical access to IT systems to authorized persons?
+2. Are appropriate authentication mechanisms in place?
+3. Is endpoint protection addressed, including mobile working and remote access?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Access controls, authentication mechanisms, and endpoint protection described.
+- **🟡 YELLOW:** Access control mentioned but authentication or endpoint protection insufficiently described.
+- **🔴 RED:** No information on access control or authentication.
+
+---
+
+## TOM-03 — Access Rights Management
+
+### Review Criteria
+
+1. Are access rights granted following the principle of least privilege?
+2. Is the lifecycle of permissions regulated (granting, modification, revocation)?
+3. Are permissions reviewed on a regular basis?
+4. Is the handling of privileged access rights separately regulated?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Authorization concept with lifecycle management, regular reviews, and privileged access handling described.
+- **🟡 YELLOW:** Permission granting addressed but reviews or privileged access handling insufficiently regulated.
+- **🔴 RED:** No discernible authorization concept.
+
+---
+
+## TOM-04 — Separation Control
+
+### Review Criteria
+
+1. Is separation of data belonging to different controllers or processing purposes ensured?
+2. Are production, test, and development environments operated separately?
+3. Is network segmentation described?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Multi-tenancy separation, environment separation, and network segmentation described.
+- **🟡 YELLOW:** Separation generally addressed but not all relevant layers covered.
+- **🔴 RED:** No information on separation.
+
+---
+
+## TOM-05 — Encryption & Pseudonymization
+
+### Review Criteria
+
+1. Are measures for encryption in transit and at rest described?
+2. Is the management of cryptographic keys regulated?
+3. Are pseudonymization or anonymization techniques applied where appropriate?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Encryption measures with key management and pseudonymization described.
+- **🟡 YELLOW:** Encryption mentioned but key management or pseudonymization not addressed.
+- **🔴 RED:** No information on encryption or pseudonymization.
+
+---
+
+## TOM-06 — Integrity & Transfer Security
+
+### Review Criteria
+
+1. Are measures for secure data transmission described?
+2. Are measures to protect against unintentional or unauthorized data exfiltration specified?
+3. Is traceability of data modifications ensured through logging?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Secure transmission, data exfiltration protection, and logging described.
+- **🟡 YELLOW:** Partially addressed but key aspects missing.
+- **🔴 RED:** No information on transfer security or traceability.
+
+---
+
+## TOM-07 — Availability & Recovery
+
+### Review Criteria
+
+1. Is a backup and recovery concept described?
+2. Are recovery tests conducted?
+3. Are measures to ensure availability described (e.g., redundancy, malware protection, vulnerability management)?
+4. Is an IT emergency or disaster recovery plan in place?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Backup concept, recovery tests, availability measures, and IT emergency plan described.
+- **🟡 YELLOW:** Basic measures in place but key aspects missing.
+- **🔴 RED:** No information on availability or recovery.
+
+---
+
+## TOM-08 — Incident Management & Reporting
+
+### Review Criteria
+
+1. Is the handling of security incidents regulated?
+2. Is a reporting pathway for personal data breaches described?
+3. Are lessons learned from security incidents used for improvement?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Incident management and reporting pathways described, improvement from incidents discernible.
+- **🟡 YELLOW:** Topic addressed but incomplete.
+- **🔴 RED:** No incident management or reporting pathway discernible.
+
+---
+
+## TOM-09 — Review & Continuous Improvement
+
+### Review Criteria
+
+1. Is the effectiveness of measures reviewed on a regular basis?
+2. Are independent reviews conducted (e.g., audits)?
+3. Is a continuous improvement process discernible?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Regular effectiveness reviews, independent audits, and improvement process described.
+- **🟡 YELLOW:** Reviews mentioned but not regular or not independent.
+- **🔴 RED:** No information on review of measures.
+
+---
+
+## TOM-10 — Supplier & Processor Control
+
+### Review Criteria
+
+1. Is the management of security risks from supplier relationships addressed?
+2. Are security requirements contractually agreed with suppliers and sub-processors?
+3. Are suppliers and service providers reviewed on a regular basis?
+4. Is the handling of cloud services regulated?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Supplier management with contractual requirements, regular reviews, and cloud governance described.
+- **🟡 YELLOW:** Supplier relationships addressed but incomplete.
+- **🔴 RED:** No information on supplier or processor control.
+
+---
+
+## TOM-11 — Deletion & Storage Limitation
+
+### Review Criteria
+
+1. Is the handling of data deletion described?
+2. Are retention periods defined?
+3. Is the secure disposal of data carriers regulated?
+4. Are statutory retention obligations taken into account?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Deletion, retention periods, secure disposal, and statutory obligations addressed.
+- **🟡 YELLOW:** Deletion mentioned but without periods, disposal, or statutory obligations.
+- **🔴 RED:** No information on deletion or storage limitation.
+
+---
+
+## TOM-12 — Data Protection Organization, Training & Certification
+
+### Review Criteria
+
+1. Is a security and data protection organization with assigned responsibilities discernible?
+2. Are employees committed to confidentiality and trained on a regular basis?
+3. Are data protection requirements considered in development and procurement (Privacy by Design / Default)?
+4. Are recognized security certifications in place (e.g., ISO/IEC 27001, SOC 2 Type II)?
+
+### Assessment Criteria
+
+- **🟢 GREEN:** Organization established, training and confidentiality commitments in place, Privacy by Design addressed, certification present.
+- **🟡 YELLOW:** Organization in place but gaps (e.g., no training, no Privacy by Design, no certification).
+- **🔴 RED:** No discernible security or data protection organization.

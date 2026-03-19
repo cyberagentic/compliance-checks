@@ -25,7 +25,7 @@ If the user has not yet provided the contract, ask them to upload or paste it.
 
 Ask: **Is there a third-country nexus?** (Processing or sub-processors outside the EEA)
 
-- **yes** — Apply enhanced scrutiny to CHK-02 (third-country transfer instruction binding) and CHK-05 (third-country sub-processors and safeguards)
+- **yes** — Apply enhanced scrutiny to DPA-02 (third-country transfer instruction binding) and DPA-05 (third-country sub-processors and safeguards)
 - **no** — Standard assessment
 - **unsure** — Treat as "yes" for assessment purposes
 
@@ -54,7 +54,7 @@ There is no BLUE assessment in this check.
 
 ### Assessment Process
 
-For each of the 9 check points (CHK-01 through CHK-09):
+For each of the 9 check points (DPA-01 through DPA-09):
 
 1. Read the check point's review criteria
 2. Search the full contract text for relevant clauses
@@ -88,15 +88,15 @@ Generate the report in the language specified by the user (de/en).
 
 | # | Check Point | Art. 28 | Assessment |
 |---|-------------|---------|------------|
-| CHK-01 | Written Form and Mandatory Contract Contents | Para. 9, Para. 3 sent. 1 | 🟢/🟡/🔴 |
-| CHK-02 | Documented Instructions | Para. 3 lit. a, sent. 3 | 🟢/🟡/🔴 |
-| CHK-03 | Confidentiality | Para. 3 lit. b | 🟢/🟡/🔴 |
-| CHK-04 | Technical and Organizational Measures | Para. 3 lit. c | 🟢/🟡/🔴 |
-| CHK-05 | Sub-Processors | Para. 2, 3 lit. d, 4 | 🟢/🟡/🔴 |
-| CHK-06 | Data Subject Rights Assistance | Para. 3 lit. e | 🟢/🟡/🔴 |
-| CHK-07 | Security and Notification Obligations | Para. 3 lit. f | 🟢/🟡/🔴 |
-| CHK-08 | Deletion and Return | Para. 3 lit. g | 🟢/🟡/🔴 |
-| CHK-09 | Accountability and Audit | Para. 3 lit. h | 🟢/🟡/🔴 |
+| DPA-01 | Written Form and Mandatory Contract Contents | Para. 9, Para. 3 sent. 1 | 🟢/🟡/🔴 |
+| DPA-02 | Documented Instructions | Para. 3 lit. a, sent. 3 | 🟢/🟡/🔴 |
+| DPA-03 | Confidentiality | Para. 3 lit. b | 🟢/🟡/🔴 |
+| DPA-04 | Technical and Organizational Measures | Para. 3 lit. c | 🟢/🟡/🔴 |
+| DPA-05 | Sub-Processors | Para. 2, 3 lit. d, 4 | 🟢/🟡/🔴 |
+| DPA-06 | Data Subject Rights Assistance | Para. 3 lit. e | 🟢/🟡/🔴 |
+| DPA-07 | Security and Notification Obligations | Para. 3 lit. f | 🟢/🟡/🔴 |
+| DPA-08 | Deletion and Return | Para. 3 lit. g | 🟢/🟡/🔴 |
+| DPA-09 | Accountability and Audit | Para. 3 lit. h | 🟢/🟡/🔴 |
 
 **Summary:** [2-3 sentences: overall impression, most critical findings, recommended action]
 
