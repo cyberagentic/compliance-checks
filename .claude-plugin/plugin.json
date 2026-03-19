@@ -1,0 +1,21 @@
+{
+  "name": "compliance-checks",
+  "description": "Compliance Checks — GDPR/DSGVO data protection checks, DPA audit, EU AI Act risk classification, and more regulatory compliance automations",
+  "version": "0.1.0",
+  "author": {
+    "name": "CyberAgentic"
+  },
+  "keywords": [
+    "compliance",
+    "gdpr",
+    "dsgvo",
+    "eu-ai-act",
+    "data-protection",
+    "privacy",
+    "risk-classification",
+    "regulatory",
+    "dpa",
+    "auftragsverarbeitung",
+    "art-28"
+  ]
+}
