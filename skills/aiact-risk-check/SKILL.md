@@ -6,7 +6,7 @@ license: "Proprietary. See LICENSE.txt for complete terms."
 
 # EU AI Act — Quick Risk Classification
 
-You are performing a quick EU AI Act risk classification. This is a lightweight pre-screening that determines the risk category of an AI system through up to 5 questions and a simplified decision tree.
+You are performing a quick EU AI Act risk classification. This is a lightweight pre-screening that determines the risk category of an AI system through a short questionnaire and a simplified decision tree.
 
 ## Preset Assumptions
 
@@ -18,7 +18,7 @@ These apply to every check and are NOT asked:
 
 ## PHASE 1: Intake
 
-Collect the following information. Questions 1-3, 5, and 6 are always asked. Question 4 is conditional (only for Annex III areas). If the user has already provided some answers in their message, extract them and ask only for the missing fields. Present the questions in a clear, numbered format.
+Collect the following information. Questions 1-3, 5, and 6 are always asked. Questions 2b, 4, and 5b are conditional. If the user has already provided some answers in their message, extract them and ask only for the missing fields. Present the questions in a clear, numbered format.
 
 Do NOT proceed to Phase 2 until all applicable questions are answered.
 
@@ -40,6 +40,25 @@ Ask the user to select ONE:
 | Deployer | Uses an AI system under its authority (except for personal non-professional use) |
 | Distributor / Importer | Makes an AI system available on the EU market or places it from a third country on the EU market |
 | Product Manufacturer | Integrates AI into a product and places the product on the market under its own name or trademark |
+| Authorised Representative | Acts on behalf of a provider established outside the EU (designated under Art. 22) |
+
+### Question 2b — System Modifications (Conditional)
+
+Only ask this question if the role selected in Q2 is Provider, Deployer, or Distributor / Importer. Skip for Product Manufacturer and Authorised Representative.
+
+Ask: "Have you modified an existing AI system in any of the following ways?"
+
+| Option | Description |
+|--------|-------------|
+| Rebranding | Placing on market under own name/trademark without other changes |
+| Changed intended purpose | Modifying the intended purpose of the AI system |
+| Substantial modification | Making a substantial modification to the AI system |
+| None of the above | No modifications to an existing system |
+
+**Mapping:**
+- Any modification selected + effectiveRole = provider → Tag "Handover"
+- Any modification selected + effectiveRole ≠ provider → Tag "Become a Provider", set effectiveRole = "provider"
+- "None of the above" → no tag
 
 ### Question 3 — Application Area (Two-Step)
 
@@ -158,6 +177,23 @@ The user may select e.g. "A and B". If "C" is selected, no other option may be c
 
 The user may select e.g. "A and B". If "C" is selected, no other option may be combined.
 
+### Question 5b — Public Body Assessment (Conditional)
+
+Only ask this question if BOTH conditions are met:
+- The role from Q2 is Deployer AND
+- The "High-risk" tag has been assigned during classification (from Q3/Q4)
+
+Ask: "Is your organisation a public law body or a private entity performing a public service?"
+
+| Option | Description |
+|--------|-------------|
+| Yes | Public authority, agency, or body governed by public law; or private entity performing public services |
+| No | Private organisation not performing public services |
+
+**Mapping:**
+- "Yes" → Tag "Fundamental Rights Impact Assessment"
+- "No" → no tag
+
 ### Question 6 — Exclusion Categories
 
 Ask the user whether any of the following exclusions apply. Select ONE:
@@ -165,6 +201,7 @@ Ask the user whether any of the following exclusions apply. Select ONE:
 | Option | Description |
 |--------|-------------|
 | Military or national security | The AI system is used exclusively for military, defence, or national security purposes |
+| Law enforcement cooperation with third country | AI system output is used by or shared with a third country authority for law enforcement, without an international agreement ensuring adequate fundamental rights protections |
 | Research & development | The system is used solely for scientific research and development, before any market placement or deployment |
 | Open source | The system is released under a free and open-source licence and is not a high-risk system, prohibited practice, or subject to transparency obligations |
 | Personal or non-professional use | The system is used by a natural person in the course of a purely personal non-professional activity |
@@ -172,6 +209,7 @@ Ask the user whether any of the following exclusions apply. Select ONE:
 
 **Mapping:**
 - "Military or national security" → add tag "Excluded" → END (no further classification)
+- "Law enforcement cooperation with third country" → add tag "Excluded" → END (no further classification)
 - "Research & development" → add tag "Exclusion: Research" (continue classification but note the exclusion in output)
 - "Open source" → add tag "Exclusion: Open Source" (continue classification but note the exclusion in output)
 - "Personal or non-professional use" → add tag "Exclusion: Personal Use" (continue classification but note the exclusion in output)
@@ -188,7 +226,7 @@ Load the decision tree from [references/decision-tree.md](references/decision-tr
 ### Core Rules
 
 - Walk through each step of the compact decision tree in sequence. Do not skip steps that are on the active path.
-- Use the user's answers directly where available (Q2 → C1, Q3 → C2/C3, Q4 → C2b, Q5 → C6, Q6 → C8).
+- Use the user's answers directly where available (Q2 → C1, Q2b → C1b, Q3 → C2/C3, Q4 → C2b, Q5 → C6, Q5b → C6b, Q6 → C8).
 - EU Scope (C4) is always assumed "yes" (preset assumption).
 - For steps that require inference (C5, C7): infer the most likely answer from `systemNameAndDescription`. Mark every inferred value explicitly with the reasoning.
 - Track `effectiveRole` (starts as Q2 value, may change to "provider" if "Become a Provider" tag is assigned).
@@ -253,7 +291,7 @@ Priority order: Excluded > Prohibited > High Risk > Ambiguous > Limited Risk > M
 
 ---
 
-This report has no legal validity.
+This is an initial assessment based on the information provided. It covers a simplified EU AI Act risk classification based on the decision tree in Art. 5, 6, 50, and 51. It does not replace a full conformity assessment or qualified legal advice.
 ```
 
 ### Tag → Obligations Mapping
@@ -263,8 +301,14 @@ For each tag assigned during classification, include the corresponding obligatio
 **"AI Literacy":**
 - Art. 4 EU AI Act | AI literacy | Take measures to ensure a sufficient level of AI literacy for staff and other persons dealing with the operation and use of AI systems on your behalf.
 
+**"Authorised Representative":**
+- Art. 22 EU AI Act | Authorised representative obligations | Comply with obligations for authorised representatives, including verifying conformity assessment, registration, and cooperation with competent authorities on behalf of the provider.
+
 **"Become a Provider":**
 - Art. 25 EU AI Act | Provider role assumption | You are considered a provider for the purposes of this legislation due to modifications or product integration. You must assume full provider obligations accordingly.
+
+**"Handover":**
+- Art. 25 EU AI Act | Provider handover obligations | As the original provider, ensure proper handover of all technical documentation, instructions, and information necessary for the new provider to comply with their obligations.
 
 **"High-risk" (effectiveRole = provider):**
 - Art. 16 EU AI Act | Provider obligations for high-risk AI | Comply with all provider obligations for high-risk AI systems under Article 16
@@ -282,6 +326,9 @@ For each tag assigned during classification, include the corresponding obligatio
 
 **"High-risk" (effectiveRole = deployer):**
 - Art. 26 EU AI Act | Deployer obligations for high-risk AI | Comply with all deployer obligations for high-risk AI systems under Article 26
+
+**"Fundamental Rights Impact Assessment":**
+- Art. 27 EU AI Act | Fundamental rights impact assessment | Conduct a fundamental rights impact assessment before deploying the high-risk AI system. Notify the national supervisory authority of the results.
 
 **"High-risk" (effectiveRole = distributorImporter):**
 - Art. 23 EU AI Act | Importer obligations for high-risk AI | Comply with all importer obligations under Article 23
@@ -317,7 +364,7 @@ For each tag assigned during classification, include the corresponding obligatio
 - Art. 2 EU AI Act | Outside scope | Your system falls outside the territorial or material scope of the EU AI Act.
 
 **"Excluded":**
-- Art. 2 EU AI Act | Military/national security exclusion | This system is excluded from the EU AI Act as it is used exclusively for military, defence, or national security purposes.
+- Art. 2 EU AI Act | Full exclusion | This system is excluded from the EU AI Act (military/national security use or law enforcement cooperation with a third country without adequate fundamental rights protections).
 
 **"Exclusion: Research":**
 - Art. 2(6) EU AI Act | Research exclusion | This system may be excluded from most obligations as it is used solely for scientific research and development prior to market placement. Verify with legal counsel whether the exclusion conditions are fully met.

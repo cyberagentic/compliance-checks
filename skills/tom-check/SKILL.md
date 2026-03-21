@@ -69,9 +69,6 @@ For each check point, produce:
 ```markdown
 ## TOM Quick Check — Art. 32 GDPR
 
-**Date:** [current date]
-**Assessed:** 12 check points (Technical and Organizational Measures)
-
 ---
 
 ## 🔴 Critical
@@ -124,8 +121,6 @@ For each check point, produce:
 | TOM-12 | Deletion & Storage Limitation | Art. 5(1)(e), 17, 32 | 🟢/🟡/🔴 |
 
 ---
-
-### Note
 
 This quick check covers 12 key areas of technical and organizational measures. It assesses whether the documentation adequately addresses each area — it does not substitute for an on-site security audit.
 ```

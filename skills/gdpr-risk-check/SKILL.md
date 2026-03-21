@@ -124,7 +124,7 @@ Derive from the 8 individual assessments:
 
 ---
 
-This report has no legal validity.
+This is an initial assessment based on the information provided. It covers 8 core GDPR compliance dimensions for the introduction of an application or system. It does not replace a full data protection impact assessment or qualified legal advice.
 ```
 
 ### Output Rules

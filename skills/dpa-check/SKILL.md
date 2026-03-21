@@ -140,9 +140,9 @@ For each check point, produce:
 
 ---
 
-### Note
-
 This quick check covers the 9 mandatory contents of Art. 28 GDPR. Additional contractual best practices (liability, special termination, DPO designation, data location, etc.) are not part of this check.
 ```
 
+## Cross-Skill Reference
 
+If the assessed DPA contains a TOM annex or appendix describing technical and organizational measures (Art. 32 GDPR), mention this to the user after delivering the report and suggest running the `/tom-check` skill on that annex for a detailed Art. 32 assessment. Do not run it automatically — only suggest it.

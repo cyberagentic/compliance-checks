@@ -163,7 +163,7 @@ Output a structured English-language report with the following sections:
 
 At the end of every assessment, include this disclaimer:
 
-> **Disclaimer:** This assessment is based on the EU NIS-2 Directive (2022/2555) as published. Member States transpose NIS-2 into national law with possible variations in scope, entity designation, and thresholds. This analysis provides an indicative EU-level assessment. For a legally binding determination, consult the applicable national transposition law and/or a qualified legal advisor. Information inferred from the company website may be incomplete or outdated.
+> **Disclaimer:** This is an initial assessment based on the information provided and the EU NIS-2 Directive (2022/2555) as published. Member States transpose NIS-2 into national law with possible variations in scope, entity designation, and thresholds. This analysis provides an indicative EU-level assessment. For a legally binding determination, consult the applicable national transposition law and/or a qualified legal advisor. Information inferred from the company website may be incomplete or outdated.
 
 ---
 
