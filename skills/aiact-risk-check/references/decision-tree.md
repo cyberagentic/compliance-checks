@@ -114,14 +114,14 @@ Source: Article 50
 
 Direct mapping from user input — no inference needed. Options are role-dependent (see Q5 in SKILL.md).
 
-**CRITICAL: Use ONLY the mapping table that matches the user's role from Q2. A Deployer can NEVER receive "Transparency: Natural Persons" or "Transparency: Synthetic Content" tags — those are Provider-only. A Provider can NEVER receive "Transparency: Deep Fake", "Transparency: Public Interest Text", or "Transparency: Emotion & Biometric" tags — those are Deployer-only.**
+**CRITICAL: Use ONLY the mapping table that matches the user's role from Q2. A Deployer can NEVER receive "Transparency: Natural Persons" or "Transparency: Synthetic Content" tags — those are Provider-only. A Provider can NEVER receive "Transparency: Content Resemblance", "Transparency: Public Interest Text", or "Transparency: Emotion & Biometric" tags — those are Deployer-only.**
 
 **Deployer options:**
 
 | Selection | Tag |
 |-----------|-----|
-| Generating or manipulating image, audio or video content constituting a deep fake | Transparency: Deep Fake |
-| Generating or manipulating text published to inform the public on matters of public interest | Transparency: Public Interest Text |
+| Generating or manipulating image, audio or video content constituting a deep fake | Transparency: Content Resemblance |
+| Generating or manipulating text published to inform the public on matters of public interest | Transparency: Emotion & Biometric |
 | Emotion recognition or biometric categorisation | Transparency: Emotion & Biometric |
 | None of the above | (no transparency tag) |
 

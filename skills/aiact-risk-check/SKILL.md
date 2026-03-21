@@ -283,14 +283,11 @@ For each tag assigned during classification, include the corresponding obligatio
 **"Transparency: Synthetic Content":**
 - Art. 50(2) EU AI Act | Synthetic content marking | Mark AI-generated content in a machine-readable format and ensure it is detectable as artificially generated
 
-**"Transparency: Deep Fake":**
-- Art. 50(4) EU AI Act | Deep fake disclosure | Disclose that content has been artificially generated or manipulated
+**"Transparency: Content Resemblance":**
+- Art. 50(4) EU AI Act | Content resemblance disclosure | Disclose that content has been artificially generated or manipulated to resemble existing persons, objects, places, or events
 
 **"Transparency: Emotion & Biometric":**
-- Art. 50(3) EU AI Act | Emotion/biometric transparency | Inform persons exposed to emotion recognition or biometric categorisation systems
-
-**"Transparency: Public Interest Text":**
-- Art. 50(3) EU AI Act | Public interest text transparency | Inform the public that the text was generated or manipulated by AI
+- Art. 50(3) EU AI Act | Emotion/biometric/public interest transparency | Inform persons exposed to emotion recognition or biometric categorisation systems, or inform the public that text was generated or manipulated by AI
 
 **"Prohibited":**
 - Art. 5 EU AI Act | Prohibited practice | Your system may be prohibited under the EU AI Act. Cease operation or consult legal counsel.
