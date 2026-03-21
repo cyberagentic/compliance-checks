@@ -104,68 +104,58 @@ If the entity is in scope, determine classification per Article 3 rules in the e
 
 ### Step 4 — Produce the Assessment Report
 
-Output a structured English-language report with the following sections:
+**IMPORTANT: Do NOT show the entity profile, data sources, applicability analysis, or assessment walkthrough in the chat. Process everything internally and only output the final report.**
 
-```
+## Output
+
+```markdown
 ## NIS-2 Applicability Assessment
 
-### Entity Profile
-- **Entity name:** [name from impressum or user input]
-- **Country:** [country]
-- **Main activity:** [description]
-- **Sector mapping:** [Annex I/II sector → subsector → entity type]
-- **Entity size:** [known data or "Unknown — user input required"]
+---
 
-### Data Sources & Assumptions
-[List what was extracted from the website vs. what was assumed/inferred. Be explicit.]
+### NIS-2 Applicability: [Symbol] **[Classification]**
 
-### Applicability Analysis
+[1-2 sentences explaining what this classification means in practice:
 
-#### 1. Sector Match
-[Explain which Annex I or II sector(s) the entity maps to, or why it does not match any]
+- If ESSENTIAL (🔴): "This entity is classified as an essential entity under NIS-2. Full obligations apply, including stricter supervision (ex ante + ex post) and higher fines (up to €10M or 2% global turnover)."
 
-#### 2. Size-Independent Criteria
-[Check each criterion from Article 2(2)-(4), state whether applicable]
+- If IMPORTANT (🟡): "This entity is classified as an important entity under NIS-2. NIS-2 obligations apply with lighter supervision (ex post only) and lower fines (up to €7M or 1.4% global turnover)."
 
-#### 3. Size Assessment
-[State known size data; if incomplete, provide conditional analysis]
+- If NOT IN SCOPE (🟢): "Based on the available information, this entity does not fall within the scope of the NIS-2 Directive."
 
-#### 4. Exclusions
-[Check and state whether any exclusion applies]
+- If CONDITIONAL (⚠️): "The classification depends on missing information. Provide the requested data for a definitive assessment."]
+
+---
 
 ### Result
-
-**NIS-2 Applicability: [Symbol] [Classification]**
 
 | Criterion | Result |
 |---|---|
 | In scope | YES / NO / CONDITIONAL |
 | Classification | ESSENTIAL / IMPORTANT / UNDETERMINED |
+| Sector | [Annex I/II sector → subsector → entity type] |
+| Size threshold | [met / not met / unknown] |
 | Confidence | HIGH / MEDIUM / LOW |
 
-[1-2 sentences explaining what this classification means in practice:
-- If ESSENTIAL (🔴): "This entity is classified as an essential entity under NIS-2. Full obligations apply, including stricter supervision (ex ante + ex post) and higher fines (up to €10M or 2% global turnover)."
-- If IMPORTANT (🟡): "This entity is classified as an important entity under NIS-2. NIS-2 obligations apply with lighter supervision (ex post only) and lower fines (up to €7M or 1.4% global turnover)."
-- If NOT IN SCOPE (🟢): "Based on the available information, this entity does not fall within the scope of the NIS-2 Directive."
-- If CONDITIONAL (⚠️): "The classification depends on missing information. Provide the requested data for a definitive assessment."]
-
-### Reasoning Summary
-[2-3 sentence plain-English summary of why the entity is or is not in scope]
-
-### Missing Information
-[List any data points the user should provide or verify for a definitive assessment]
-
-### Recommendations
-[Practical next steps — e.g., verify employee count, check group structure, consult national transposition law]
-```
+- [Sector match reasoning — 1 sentence]
+- [Size assessment — 1 sentence]
+- [Size-independent criteria — 1 sentence, only if applicable]
+- [Exclusions — 1 sentence, only if relevant]
+- [Missing information or open points — 1 sentence per item, only if applicable]
+- [Recommendation / next step — 1 sentence, only if applicable]
 
 ---
 
-## Important Caveats to Always Include
+This assessment is based on the EU NIS-2 Directive (2022/2555). Member States transpose NIS-2 into national law with possible variations. For a legally binding determination, consult qualified legal counsel.
+```
 
-At the end of every assessment, include this disclaimer:
+### Output Rules
 
-> **Disclaimer:** This assessment is based on the EU NIS-2 Directive (2022/2555) as published. Member States transpose NIS-2 into national law with possible variations in scope, entity designation, and thresholds. This analysis provides an indicative EU-level assessment. For a legally binding determination, consult the applicable national transposition law and/or a qualified legal advisor. Information inferred from the company website may be incomplete or outdated.
+- Do NOT add entity profiles, data source lists, or applicability analysis sections.
+- Do NOT show assessment logic, decision tree walkthrough, or internal reasoning in the output.
+- Keep bullet points after the result table to max 1 sentence each.
+- Only include bullet points that are relevant — omit empty or non-applicable items.
+- Keep the output to: header, classification with explanation, result table, bullet points, and note.
 
 ---
 
