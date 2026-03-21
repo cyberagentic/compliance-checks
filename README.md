@@ -32,7 +32,7 @@ claude plugins add cyberagentic/compliance-plugin
 Assess whether an entity falls within the scope of the NIS-2 Directive (EU 2022/2555).
 
 ```
-/compliance-checks:nis2-check
+/nis2-check
 ```
 
 **What it does:**
@@ -51,7 +51,7 @@ Assess whether an entity falls within the scope of the NIS-2 Directive (EU 2022/
 Classify an AI system under the EU AI Act and map applicable obligations.
 
 ```
-/compliance-checks:aiact-risk-check
+/aiact-risk-check
 ```
 
 **What it does:**
@@ -72,7 +72,7 @@ Classify an AI system under the EU AI Act and map applicable obligations.
 GDPR risk check for introducing a new application or system.
 
 ```
-/compliance-checks:gdpr-risk-check
+/gdpr-risk-check
 ```
 
 **What it does:**
@@ -95,7 +95,7 @@ GDPR risk check for introducing a new application or system.
 Assess a Technical and Organizational Measures document against Art. 32 GDPR.
 
 ```
-/compliance-checks:tom-check
+/tom-check
 ```
 
 **Accepts:** PDF upload, Word/DOCX upload, or pasted text (TOM annex, security concept, or standalone TOM description).
@@ -124,7 +124,7 @@ Assess a Technical and Organizational Measures document against Art. 32 GDPR.
 Review a Data Processing Agreement for Art. 28 GDPR compliance.
 
 ```
-/compliance-checks:dpa-check
+/dpa-check
 ```
 
 **Accepts:** PDF upload, Word/DOCX upload, or pasted contract text.
