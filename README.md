@@ -149,38 +149,33 @@ Review a Data Processing Agreement for Art. 28 GDPR compliance.
 
 ### NIS-2 Applicability
 
-1. Run `/nis2-check`
-2. Provide your company website or name + country
-3. Answer questions about sector, employee count, and turnover
-4. Receive a scope assessment with essential/important classification
+1. Run `/nis2-check` and provide your company website or name + country
+2. Answer questions about sector, employee count, and turnover
+3. Receive a scope assessment with essential/important classification
 
 ### AI Act Risk Classification
 
-1. Run `/aiact-risk-check`
-2. Describe your AI system and its use case
-3. Answer intake questions about role, application area, and system functions
-4. Receive a risk classification with applicable obligations
+1. Run `/aiact-risk-check` and describe your AI system and its use case
+2. Answer intake questions about role, application area, and system functions
+3. Receive a risk classification with applicable obligations
 
 ### GDPR Risk Check
 
-1. Run `/gdpr-risk-check`
-2. Describe the application or system you want to introduce
-3. Answer 5 questions on data types, transfers, legal basis, and DPA status
-4. Receive a risk category with an obligations table per compliance dimension
+1. Run `/gdpr-risk-check` and describe the application or system you want to introduce
+2. Answer questions on data types, transfers, legal basis, and DPA status
+3. Receive a risk category with an obligations table per compliance dimension
 
 ### TOM Assessment
 
-1. Run `/tom-check`
-2. Upload the TOM annex (PDF, Word) or paste the text
-3. Receive a report covering 12 check points from physical security to deletion concepts
-4. Address flagged gaps before signing or renewing the processor contract
+1. Run `/tom-check` and upload the TOM annex (PDF, Word) or paste the text
+2. Receive a report covering 12 check points from physical security to deletion concepts
+3. Address flagged gaps before signing or renewing the processor contract
 
 ### DPA Review
 
-1. Run `/dpa-check`
-2. Upload the Data Processing Agreement (PDF, Word) or paste the text
-3. Provide context: your role (controller/processor) and third-country nexus
-4. Receive an Art. 28 GDPR compliance check with flagged clauses and gaps
+1. Run `/dpa-check` and upload the Data Processing Agreement (PDF, Word) or paste the text
+2. Provide context: your role (controller/processor) and third-country nexus
+3. Receive an Art. 28 GDPR compliance check with flagged clauses and gaps
 
 ## File Structure
 
