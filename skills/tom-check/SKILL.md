@@ -1,6 +1,6 @@
 ---
 name: tom-check
-description: "This skill should be used when the user asks to 'check TOMs', 'review TOMs', 'TOM quick check', 'assess technical measures', 'review security measures', or needs a quick Art. 32 GDPR compliance check of a Technical and Organizational Measures document. Accepts PDF, Word, or pasted text and produces a traffic-light assessment of 12 check points."
+description: "Art. 32 GDPR compliance check for Technical and Organizational Measures. Analyses a TOM document against 12 check points and produces a traffic-light assessment."
 license: "Proprietary. See LICENSE.txt for complete terms."
 ---
 

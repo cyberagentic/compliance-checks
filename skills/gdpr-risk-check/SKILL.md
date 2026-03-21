@@ -1,6 +1,6 @@
 ---
 name: gdpr-risk-check
-description: "GDPR/DSGVO risk check for applications and systems. Use when user asks to 'check GDPR compliance', 'DSGVO check', 'GDPR risk check', 'data protection check for application', 'assess data protection for system', 'GDPR quick check'. Accepts application/system description and produces a risk classification with applicable obligations."
+description: "GDPR risk check for applications and systems. Assesses data protection compliance across 8 dimensions and identifies applicable obligations."
 license: "Proprietary. See LICENSE.txt for complete terms."
 ---
 

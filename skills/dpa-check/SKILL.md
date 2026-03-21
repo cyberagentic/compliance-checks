@@ -1,6 +1,6 @@
 ---
 name: dpa-check
-description: "This skill should be used when the user asks to 'check a DPA', 'review a DPA', 'DPA quick check', 'AVV prüfen', or needs a quick Art. 28 GDPR compliance check of a Data Processing Agreement. Accepts PDF, Word, or pasted contract text and produces a traffic-light assessment of 9 mandatory check points."
+description: "Art. 28 GDPR compliance check for Data Processing Agreements. Analyses a DPA document against 9 mandatory check points and produces a traffic-light assessment."
 license: "Proprietary. See LICENSE.txt for complete terms."
 ---
 

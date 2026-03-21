@@ -1,6 +1,6 @@
 ---
 name: aiact-risk-check
-description: "EU AI Act quick risk classification for AI systems. Use when user asks to 'classify AI system', 'EU AI Act check', 'KI-System klassifizieren', 'AI Act Risiko pruefen', 'determine AI risk category', 'quick AI Act assessment'. Accepts system description and determines risk category through simplified decision tree."
+description: "EU AI Act risk classification for AI systems. Determines the risk category of an AI system through a simplified decision tree based on the AI Act's annexes and articles."
 license: "Proprietary. See LICENSE.txt for complete terms."
 ---
 

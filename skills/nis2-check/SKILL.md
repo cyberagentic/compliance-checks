@@ -1,6 +1,6 @@
 ---
 name: nis2-check
-description: "Perform a NIS-2 Directive applicability assessment for any EU-based or EU-operating entity. Use this skill whenever a user asks about NIS-2 applicability, NIS-2 compliance scope, whether a company falls under NIS-2, NIS-2 Betroffenheitsprüfung, or NIS-2 affected entities. Also trigger when the user mentions 'NIS2', 'NIS-2', 'NIS 2', 'Network and Information Security Directive', or asks whether an entity is an essential or important entity under EU cybersecurity law. The skill works by analysing a company's website (impressum, about page) to infer sector, activity type and size, then cross-referencing against the directive's scope rules. The user may also provide details directly (main activity, employee count, turnover, balance sheet total). All output is in English."
+description: "NIS-2 Directive applicability check. Determines whether an entity is in scope as essential or important entity by analysing its sector, size, and activity against the directive's criteria."
 license: "Proprietary. See LICENSE.txt for complete terms."
 ---
 
