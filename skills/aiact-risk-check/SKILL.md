@@ -18,7 +18,7 @@ These apply to every check and are NOT asked:
 
 ## PHASE 1: Intake
 
-Collect the following information. Questions 1-3 and 5 are always asked. Question 4 is conditional (only for Annex III areas). If the user has already provided some answers in their message, extract them and ask only for the missing fields. Present the questions in a clear, numbered format.
+Collect the following information. Questions 1-3, 5, and 6 are always asked. Question 4 is conditional (only for Annex III areas). If the user has already provided some answers in their message, extract them and ask only for the missing fields. Present the questions in a clear, numbered format.
 
 Do NOT proceed to Phase 2 until all applicable questions are answered.
 
@@ -158,6 +158,25 @@ The user may select e.g. "A and B". If "C" is selected, no other option may be c
 
 The user may select e.g. "A and B". If "C" is selected, no other option may be combined.
 
+### Question 6 — Exclusion Categories
+
+Ask the user whether any of the following exclusions apply. Select ONE:
+
+| Option | Description |
+|--------|-------------|
+| Military or national security | The AI system is used exclusively for military, defence, or national security purposes |
+| Research & development | The system is used solely for scientific research and development, before any market placement or deployment |
+| Open source | The system is released under a free and open-source licence and is not a high-risk system, prohibited practice, or subject to transparency obligations |
+| Personal or non-professional use | The system is used by a natural person in the course of a purely personal non-professional activity |
+| None of the above | No exclusion applies |
+
+**Mapping:**
+- "Military or national security" → add tag "Excluded" → END (no further classification)
+- "Research & development" → add tag "Exclusion: Research" (continue classification but note the exclusion in output)
+- "Open source" → add tag "Exclusion: Open Source" (continue classification but note the exclusion in output)
+- "Personal or non-professional use" → add tag "Exclusion: Personal Use" (continue classification but note the exclusion in output)
+- "None of the above" → no tag, continue normally
+
 ---
 
 ## PHASE 2: Simplified Classification
@@ -169,7 +188,7 @@ Load the decision tree from [references/decision-tree.md](references/decision-tr
 ### Core Rules
 
 - Walk through each step of the compact decision tree in sequence. Do not skip steps that are on the active path.
-- Use the user's answers directly where available (Q2 → C1, Q3 → C2/C3, Q4 → C2b, Q5 → C6).
+- Use the user's answers directly where available (Q2 → C1, Q3 → C2/C3, Q4 → C2b, Q5 → C6, Q6 → C8).
 - EU Scope (C4) is always assumed "yes" (preset assumption).
 - For steps that require inference (C5, C7): infer the most likely answer from `systemNameAndDescription`. Mark every inferred value explicitly with the reasoning.
 - Track `effectiveRole` (starts as Q2 value, may change to "provider" if "Become a Provider" tag is assigned).
@@ -191,9 +210,11 @@ Based on the collected tags, assign the final risk category:
 | Any Transparency tag present (but no High-risk or Prohibited) | Limited Risk | 🟡 |
 | No risk-relevant tags | Minimal Risk | 🟢 |
 | "Out of scope" tag present | Not in Scope | ⚪ |
+| "Excluded" tag present | Excluded | ⚪ |
+| Any Exclusion tag present (Research, Open Source, Personal Use) | Show classification result BUT add exclusion note | — |
 | Any step marked AMBIGUOUS or genuinely undecidable | Ambiguous | ⚠️ |
 
-Priority order: Prohibited > High Risk > Ambiguous > Limited Risk > Minimal Risk > Not in Scope.
+Priority order: Excluded > Prohibited > High Risk > Ambiguous > Limited Risk > Minimal Risk > Not in Scope.
 
 ---
 
@@ -294,6 +315,18 @@ For each tag assigned during classification, include the corresponding obligatio
 
 **"Out of scope":**
 - Art. 2 EU AI Act | Outside scope | Your system falls outside the territorial or material scope of the EU AI Act.
+
+**"Excluded":**
+- Art. 2 EU AI Act | Military/national security exclusion | This system is excluded from the EU AI Act as it is used exclusively for military, defence, or national security purposes.
+
+**"Exclusion: Research":**
+- Art. 2(6) EU AI Act | Research exclusion | This system may be excluded from most obligations as it is used solely for scientific research and development prior to market placement. Verify with legal counsel whether the exclusion conditions are fully met.
+
+**"Exclusion: Open Source":**
+- Art. 2(12) EU AI Act | Open-source exclusion | This system may benefit from reduced obligations under the open-source exclusion. Note: this exclusion does NOT apply if the system is classified as high-risk, prohibited, or subject to transparency obligations. Verify with legal counsel.
+
+**"Exclusion: Personal Use":**
+- Art. 2(10) EU AI Act | Personal use exclusion | This system may be excluded as it is used by a natural person in a purely personal, non-professional capacity. Verify with legal counsel.
 
 ### Output Rules
 

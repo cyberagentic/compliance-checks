@@ -156,6 +156,25 @@ Assess whether the AI system is or uses a general-purpose AI model with high-imp
 **If not GPAI → no tag**
 
 Mark as inferred and state reasoning.
+→ C8
+
+## Step C8 — Exclusion Categories
+
+Use field: `exclusions` (from Q6)
+Source: Article 2
+
+| Value | Tags | Next Step |
+|-------|------|-----------|
+| Military or national security | Excluded | → END |
+| Research & development | Exclusion: Research | → END |
+| Open source | Exclusion: Open Source | → END |
+| Personal or non-professional use | Exclusion: Personal Use | → END |
+| None of the above | (none) | → END |
+
+**"Excluded" (military/national security) overrides all other tags — the system is fully out of scope.**
+
+**"Exclusion: Research", "Exclusion: Open Source", and "Exclusion: Personal Use" are conditional exclusions.** The classification result still applies, but the output must note that the exclusion may limit or remove obligations depending on the specific circumstances. These exclusions have nuances (e.g., open-source exclusion does NOT apply if the system is high-risk or prohibited), so the report must recommend verifying with legal counsel.
+
 → END
 
 ---
