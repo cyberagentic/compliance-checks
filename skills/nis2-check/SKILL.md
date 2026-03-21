@@ -116,25 +116,6 @@ Output a structured English-language report with the following sections:
 - **Sector mapping:** [Annex I/II sector → subsector → entity type]
 - **Entity size:** [known data or "Unknown — user input required"]
 
-### Data Sources & Assumptions
-[List what was extracted from the website vs. what was assumed/inferred. Be explicit.]
-
-### Applicability Analysis
-
-#### 1. Sector Match
-[Explain which Annex I or II sector(s) the entity maps to, or why it does not match any]
-
-#### 2. Size-Independent Criteria
-[Check each criterion from Article 2(2)-(4), state whether applicable]
-
-#### 3. Size Assessment
-[State known size data; if incomplete, provide conditional analysis]
-
-#### 4. Exclusions
-[Check and state whether any exclusion applies]
-
-### Result
-
 **NIS-2 Applicability: [Symbol] [Classification]**
 
 | Criterion | Result |
@@ -151,6 +132,23 @@ Output a structured English-language report with the following sections:
 
 ### Reasoning Summary
 [2-3 sentence plain-English summary of why the entity is or is not in scope]
+
+### Data Sources & Assumptions
+[List what was extracted from the website vs. what was assumed/inferred. Be explicit.]
+
+### Applicability Analysis
+
+#### 1. Sector Match
+[Explain which Annex I or II sector(s) the entity maps to, or why it does not match any]
+
+#### 2. Size-Independent Criteria
+[Check each criterion from Article 2(2)-(4), state whether applicable]
+
+#### 3. Size Assessment
+[State known size data; if incomplete, provide conditional analysis]
+
+#### 4. Exclusions
+[Check and state whether any exclusion applies]
 
 ### Missing Information
 [List any data points the user should provide or verify for a definitive assessment]
