@@ -153,7 +153,7 @@ The check uses a 3-level traffic light scale:
 
 ### Assessment Criteria
 
-- **🟢 GREEN:** Multi-tenancy separation, environment separation, and network segmentation described.
+- **🟢 GREEN:** Separation of data, environments and segregation of networks are described.
 - **🟡 YELLOW:** Separation generally addressed but not all relevant layers covered.
 - **🔴 RED:** No information on separation.
 
@@ -166,8 +166,7 @@ The check uses a 3-level traffic light scale:
 ### Review Criteria
 
 1. Are measures for encryption in transit and at rest described?
-2. Is the management of cryptographic keys regulated?
-3. Are pseudonymization or anonymization techniques applied where appropriate?
+2. Are pseudonymization or anonymization techniques mentioned where appropriate?
 
 ### Assessment Criteria
 
@@ -204,7 +203,7 @@ The check uses a 3-level traffic light scale:
 1. Is a backup and recovery concept described?
 2. Are recovery tests conducted?
 3. Are measures to ensure availability described (e.g., redundancy, malware protection, vulnerability management)?
-4. Is an IT emergency or disaster recovery plan in place?
+4. Is an IT emergency or disaster recovery plan mentioned?
 
 ### Assessment Criteria
 
@@ -221,8 +220,8 @@ The check uses a 3-level traffic light scale:
 ### Review Criteria
 
 1. Is the handling of data deletion described?
-2. Are retention periods defined?
-3. Is the secure disposal of data carriers regulated?
+2. Are retention periods mentioned?
+3. Is the secure disposal of data carriers mentioned?
 4. Are statutory retention obligations taken into account?
 
 ### Assessment Criteria

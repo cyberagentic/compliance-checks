@@ -1,6 +1,7 @@
 ---
 name: dpa-check
 description: "This skill should be used when the user asks to 'check a DPA', 'review a DPA', 'DPA quick check', 'AVV prüfen', or needs a quick Art. 28 GDPR compliance check of a Data Processing Agreement. Accepts PDF, Word, or pasted contract text and produces a traffic-light assessment of 9 mandatory check points."
+license: "Proprietary. See LICENSE.txt for complete terms."
 ---
 
 # DPA Quick Check (Art. 28 GDPR)
@@ -70,13 +71,20 @@ For each check point, produce:
 - **Recommendation**: Maximum 1 sentence for YELLOW or RED. No drafting suggestions — state the action needed, not how to draft it.
 - **Clause Reference**: Name the section, paragraph, or heading where the clause was found. If not found, state "Not found". No quotations.
 
-## PHASE 3: Output
+### Formatting Rules
 
-Generate the report in English.
+- Use Markdown formatting with properly formatted tables
+- Reference clauses by chapter, section, or paragraph heading — NEVER by page number
+- Do not add general GDPR explanations beyond the assessment
+- Do not invent issues not found during assessment
+- Group by severity as h2 headings: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met. GREEN items are listed by ID and title only, without reasoning.
+- Use horizontal rules (---) between major sections for clear visual separation
+- The Result table with all 9 check points goes at the bottom, before the Note
+- Do not include company name, document title, or party names in the header — only date and scope
 
-### Report Structure
+## Output
 
-```
+```markdown
 ## DPA Quick Check — Art. 28 GDPR
 
 **Date:** [current date]
@@ -137,14 +145,4 @@ Generate the report in English.
 This quick check covers the 9 mandatory contents of Art. 28 GDPR. Additional contractual best practices (liability, special termination, DPO designation, data location, etc.) are not part of this check.
 ```
 
-### Report Formatting Rules
-
-- Use Markdown formatting with properly formatted tables
-- Reference clauses by chapter, section, or paragraph heading — NEVER by page number
-- Do not add general GDPR explanations beyond the assessment
-- Do not invent issues not found during assessment
-- Group by severity as h2 headings: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met. GREEN items are listed by ID and title only, without reasoning.
-- Use horizontal rules (---) between major sections for clear visual separation
-- The Result table with all 9 check points goes at the bottom, before the Note
-- Do not include company name, document title, or party names in the header — only date and scope
 

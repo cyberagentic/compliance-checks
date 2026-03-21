@@ -1,53 +1,173 @@
-# Compliance Checks
+# Compliance & Risk Plugin
 
-Regulatory compliance assessment toolkit — structured GDPR/DSGVO data protection checks, DPA audits against Art. 28 GDPR, and EU AI Act risk classification.
+An AI-powered compliance assessment toolkit for data protection and regulatory teams. Automates DPA reviews, TOM assessments, GDPR cloud service checks, and EU AI Act risk classifications — producing structured, traffic-light reports against legal requirements.
 
-## Components
+**Disclaimer**: This plugin assists with compliance workflows but does not provide legal advice. All assessments should be reviewed by qualified legal professionals. Regulatory requirements change frequently; always verify current requirements with authoritative sources.
 
-### Skills
+## Target Personas
+
+- **Data Protection Officers** — DPA reviews, TOM assessments, GDPR compliance checks
+- **Privacy / Compliance Teams** — Vendor assessments, cloud service introductions, regulatory pre-screening
+- **In-House Counsel** — Contract review support for data processing agreements, regulatory risk assessment
+- **AI Governance Teams** — EU AI Act risk classification, obligations mapping
+
+## Installation
+
+```
+claude plugins add cyberagentic/compliance-plugin
+```
+
+## Skills
 
 | Skill | Description |
 |-------|-------------|
-| **eu-ai-act-check** | Classifies AI systems through a legal decision tree (Articles 2-6, 50 EU AI Act) and generates a compliance report with risk category, obligations, and next steps. |
-| **gdpr-check** | Assesses GDPR/DSGVO compliance for cloud service introductions. Classifies data protection obligations and generates a professional assessment report. |
-| **dpa-check** | Reviews a Data Processing Agreement (DPA) against 34 requirements derived from Art. 28 GDPR. Accepts PDF, Word, or pasted text and produces a structured audit report with GREEN/YELLOW/RED/BLUE assessments. |
+| **dpa-check** | Reviews a Data Processing Agreement against 9 mandatory check points from Art. 28 GDPR. Accepts PDF, Word, or pasted text. |
+| **tom-check** | Assesses Technical and Organizational Measures against 12 check points aligned to Art. 32 GDPR and ISO 27001. Accepts PDF, Word, or pasted text. |
+| **gdpr-check** | Quick GDPR compliance check for cloud service introductions. Assesses 8 compliance dimensions with traffic-light dashboard. |
+| **aiact-risk-check** | EU AI Act risk classification with full decision tree. Determines risk category and maps likely applicable obligations. |
 
-## Usage
+## DPA Check
 
-### EU AI Act Check
+Review a Data Processing Agreement for Art. 28 GDPR compliance.
 
-Trigger phrases: "check EU AI Act compliance", "classify an AI system", "determine AI risk category", "assess AI Act obligations"
+```
+/compliance-and-risk:dpa-check
+```
 
-The skill walks through a structured assessment:
-1. Collects information about the AI system (name, description, entity type, etc.)
-2. Classifies the system through the EU AI Act decision tree
-3. Generates a report with risk category, applicable obligations, and recommended next steps
+**Accepts:** PDF upload, Word/DOCX upload, or pasted contract text.
 
-Supports both German (`de`) and English (`en`) reports.
+**What it does:**
+1. Asks 3 intake questions: contract input, your role (controller/processor), third-country nexus
+2. Evaluates 9 check points strictly aligned to Art. 28 GDPR (Para. 3 lit. a–h + Para. 9)
+3. Produces a traffic-light report: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met
 
-### GDPR/DSGVO Check
+**Check points covered:**
+- Written form and mandatory contract contents
+- Documented instructions
+- Confidentiality
+- Technical and organizational measures
+- Sub-processors (authorization, flow-down, liability)
+- Data subject rights assistance
+- Security and notification obligations
+- Deletion and return
+- Accountability and audit
 
-Trigger phrases: "check GDPR compliance", "run a DSGVO check", "assess data protection for a cloud service"
+## TOM Check
 
-The skill performs a structured data protection assessment:
-1. Collects information about the cloud service and its data processing
-2. Classifies obligations through the DSGVO decision tree
-3. Generates a 12-section professional compliance report
+Assess a Technical and Organizational Measures document against Art. 32 GDPR.
 
-Default report language is German; English is also supported.
+```
+/compliance-and-risk:tom-check
+```
 
-### DPA Check
+**Accepts:** PDF upload, Word/DOCX upload, or pasted text (TOM annex, security concept, or standalone TOM description).
 
-Trigger phrases: "check a DPA", "review a data processing agreement", "audit an Auftragsverarbeitungsvertrag", "assess DPA compliance"
+**What it does:**
+1. Accepts the TOM documentation
+2. Evaluates 12 check points ordered by ISO 27001:2022 Annex A domains with GDPR article references
+3. Produces a traffic-light report: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met
 
-The skill audits a Data Processing Agreement:
-1. Accepts the DPA as PDF, Word upload, or pasted text
-2. Evaluates 34 requirements across categories (Contractual Foundations, Instruction Binding, Confidentiality, TOMs, Sub-Processors, Data Subject Rights, Deletion, Audit, International Transfers, Liability, Organization)
-3. Applies a three-tier system (mandatory/control/governance) with tier-specific assessment rules
-4. Generates a structured report with executive summary, critical findings, and prioritized next steps
+**Check points covered:**
+- Data protection organization, training & certification
+- Supplier & processor control
+- Incident management & reporting
+- Review & continuous improvement
+- Physical security
+- Access control & authentication
+- Access rights management
+- Separation control
+- Encryption & pseudonymization
+- Integrity & transfer security
+- Availability & recovery
+- Deletion & storage limitation
 
-Default report language is German; English is also supported.
+## GDPR Check
+
+Quick GDPR compliance assessment for introducing a cloud service.
+
+```
+/compliance-and-risk:gdpr-check
+```
+
+**What it does:**
+1. Asks 5 intake questions: service description, data types, third-country transfer, DPA status, legal basis
+2. Assesses 8 compliance dimensions with traffic-light ratings
+3. Produces a dashboard with overall assessment and prioritized recommendations
+
+**Dimensions assessed:**
+- Personal data classification
+- Legal basis
+- DPIA requirement
+- Data protection principles
+- Data subject rights
+- Third country transfer
+- Data processing agreement
+- Accountability
+
+## EU AI Act Check
+
+Classify an AI system under the EU AI Act and map likely applicable obligations.
+
+```
+/compliance-and-risk:aiact-risk-check
+```
+
+**What it does:**
+1. Asks 5 intake questions: system description, role in AI value chain, application area, EU scope, system functions
+2. Processes a full classification decision tree internally (Steps I → E1–E3 → HR1–HR6 → S1 → R1–R5)
+3. Produces a 3-section report: Risk Classification Record, Likely Applicable Obligations, Recommended Next Steps
+
+**Risk categories:**
+- 🔴 Prohibited — Art. 5 EU AI Act
+- 🟠 High Risk — Art. 6 EU AI Act
+- 🟡 Limited Risk — Art. 50 transparency obligations
+- 🟢 Minimal Risk — Art. 4 AI literacy only
+- ⚪ Not in Scope
+- ⚠️ Ambiguous — insufficient information
+
+## Example Workflows
+
+### Review a DPA from a new SaaS vendor
+Upload the vendor's Data Processing Agreement and get an instant Art. 28 GDPR compliance check. Identify missing clauses, incomplete provisions, and critical gaps before signing.
+
+### Assess a vendor's TOM documentation
+Upload the TOM annex from a processor and check whether all 12 key security areas are adequately documented — from physical security to deletion concepts.
+
+### Evaluate a new cloud service for GDPR compliance
+Describe the cloud service you want to introduce and answer 5 quick questions. Get a compliance dashboard showing which dimensions need attention before deployment.
+
+### Classify an AI system under the EU AI Act
+Describe your AI system and its use case. Get a risk classification, a record of the legal assessment, and a list of likely applicable obligations — all in one report.
+
+### Check if a DPA covers third-country transfers
+Upload a DPA and indicate there's a third-country nexus. The check applies enhanced scrutiny to instruction binding and sub-processor provisions for international data transfers.
+
+## File Structure
+
+```
+compliance-and-risk/
+├── .claude-plugin/
+│   └── plugin.json
+├── README.md
+└── skills/
+    ├── dpa-check/
+    │   ├── SKILL.md
+    │   └── references/
+    │       └── check-requirements.md
+    ├── tom-check/
+    │   ├── SKILL.md
+    │   └── references/
+    │       └── check-requirements.md
+    ├── gdpr-check/
+    │   ├── SKILL.md
+    │   └── references/
+    │       └── gdpr-dimensions.md
+    └── aiact-risk-check/
+        ├── SKILL.md
+        └── references/
+            └── decision-tree.md
+```
 
 ## Setup
 
-No external services or environment variables required. The plugin works entirely through Claude's built-in capabilities.
+No external services or environment variables required. The plugin works entirely through Claude's built-in capabilities — upload or paste your documents and get structured compliance reports.

@@ -1,6 +1,7 @@
 ---
 name: tom-check
 description: "This skill should be used when the user asks to 'check TOMs', 'review TOMs', 'TOM quick check', 'assess technical measures', 'review security measures', or needs a quick Art. 32 GDPR compliance check of a Technical and Organizational Measures document. Accepts PDF, Word, or pasted text and produces a traffic-light assessment of 12 check points."
+license: "Proprietary. See LICENSE.txt for complete terms."
 ---
 
 # TOM Quick Check (Art. 32 GDPR)
@@ -52,13 +53,20 @@ For each check point, produce:
 - **Recommendation**: Maximum 1 sentence for YELLOW or RED. No drafting suggestions — state the action needed, not how to draft it.
 - **Document Reference**: Name the section, heading, or chapter where the topic was found. If not found, state "Not found". No quotations.
 
-## PHASE 3: Output
+### Formatting Rules
 
-Generate the report in English.
+- Use Markdown formatting with properly formatted tables
+- Reference sections by heading, chapter, or paragraph — NEVER by page number
+- Do not add general GDPR or security explanations beyond the assessment
+- Do not invent issues not found during assessment
+- Group by severity as h2 headings: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met. GREEN items are listed by ID and title only, without reasoning.
+- Use horizontal rules (---) between major sections for clear visual separation
+- The Result table with all 12 check points goes at the bottom, before the Note
+- Do not include organization name, company name, or document title in the header — only date and scope
 
-### Report Structure
+## Output
 
-```
+```markdown
 ## TOM Quick Check — Art. 32 GDPR
 
 **Date:** [current date]
@@ -122,13 +130,3 @@ Generate the report in English.
 This quick check covers 12 key areas of technical and organizational measures. It assesses whether the documentation adequately addresses each area — it does not substitute for an on-site security audit.
 ```
 
-### Report Formatting Rules
-
-- Use Markdown formatting with properly formatted tables
-- Reference sections by heading, chapter, or paragraph — NEVER by page number
-- Do not add general GDPR or security explanations beyond the assessment
-- Do not invent issues not found during assessment
-- Group by severity as h2 headings: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met. GREEN items are listed by ID and title only, without reasoning.
-- Use horizontal rules (---) between major sections for clear visual separation
-- The Result table with all 12 check points goes at the bottom, before the Note
-- Do not include organization name, company name, or document title in the header — only date and scope

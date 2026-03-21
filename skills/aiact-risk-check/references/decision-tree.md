@@ -1,4 +1,4 @@
-# EU AI Act — Compact Decision Tree
+# EU AI Act — Classification Decision Tree
 
 ## CLASSIFICATION PRINCIPLE
 
@@ -15,8 +15,7 @@ Source: Article 3 points 2-8
 |-------|------|-----------|
 | provider | AI Literacy | → C2 |
 | deployer | AI Literacy | → C2 |
-| distributor | (none) | → C2 |
-| importer | (none) | → C2 |
+| distributorImporter | (none) | → C2 |
 | productManufacturer | (none) | → C3 |
 
 Track `effectiveRole` = `role` value from this point forward. If "Become a Provider" tag is assigned at any later step, set `effectiveRole` = "provider" for all subsequent steps.
@@ -52,29 +51,16 @@ If option 12 (None of the above) is selected:
 
 IMPORTANT: Remember whether Annex I categories were selected — this is needed for the GPAI check in C7.
 
-## Step C2b — Significant Risk Inference
+## Step C2b — Significant Risk Check
 
 Source: Article 6 point 3
-Input: Inferred from `systemNameAndDescription`
+Input: `significantRisk` (from Q4 — conditional question, only asked for Annex III areas)
 
-The system does NOT pose a significant risk if ALL of the following are true:
-1. The AI system is intended to perform a narrow procedural task
-2. The AI system improves the result of a previously completed human activity
-3. The AI system detects decision-making patterns without replacing or influencing human assessment
-4. The AI system performs only a preparatory task for human assessment
-
-EXCEPTION: The system is ALWAYS high-risk if it performs profiling of natural persons (Article 4(4) GDPR).
-
-**If significant risk is inferred OR uncertain:**
-- Add tag "High-risk"
-- If `effectiveRole` is NOT "provider" → add tag "Become a Provider", set `effectiveRole` = "provider"
-- → C4
-
-**If clearly not significant risk:**
-- If `effectiveRole` is "provider" → add tag "Notify NCA"
-- → C4
-
-Mark as inferred and state reasoning.
+| Value | Action | Next Step |
+|-------|--------|-----------|
+| Makes autonomous decisions or profiles people | Add tag "High-risk". If `effectiveRole` is NOT "provider" → add tag "Become a Provider", set `effectiveRole` = "provider" | → C4 |
+| Unsure | Add tag "High-risk". If `effectiveRole` is NOT "provider" → add tag "Become a Provider", set `effectiveRole` = "provider" | → C4 |
+| Only prepares information for human decisions | If `effectiveRole` is "provider" → add tag "Notify NCA" | → C4 |
 
 ## Step C3 — Product Manufacturer Check
 
@@ -94,16 +80,11 @@ Check if the user selected any Annex I category (options 9, 10, or 11):
 
 ## Step C4 — EU Scope
 
-Use field: `euScope` (from Q4)
 Source: Article 2
 
-| Value | Action | Next Step |
-|-------|--------|-----------|
-| yes | (none) | → C5 |
-| no | Add tag "Out of scope" | → END |
-| unsure | INFER from description. If still unclear → mark ambiguous, continue | → C5 |
+**Preset assumption: EU Scope = yes.** This check always assumes the AI system is used in the EU or aimed at EU users. No user input needed.
 
-Inference guidance for "unsure": Check if the description mentions EU-based users, EU market, EU deployment, or EU customers. If the system is a web service accessible from the EU, conservatively assume EU scope applies.
+→ C5
 
 ## Step C5 — Prohibited Practices Check
 
@@ -131,13 +112,23 @@ Mark as inferred and state which practices were evaluated.
 Use field: `systemFunctions` (from Q5)
 Source: Article 50
 
-Direct mapping from user input — no inference needed:
+Direct mapping from user input — no inference needed. Options are role-dependent (see Q5 in SKILL.md).
+
+**Deployer options:**
 
 | Selection | Tag |
 |-----------|-----|
-| Interacts directly with people | Transparency: Natural Persons |
-| Generates or manipulates images, audio, video, or text | Transparency: Synthetic Content |
-| Performs emotion recognition or biometric categorization | Transparency: Emotion & Biometric |
+| Generating or manipulating image, audio or video content constituting a deep fake | Transparency: Deep Fake |
+| Generating or manipulating text published to inform the public on matters of public interest | Transparency: Public Interest Text |
+| Emotion recognition or biometric categorisation | Transparency: Emotion & Biometric |
+| None of the above | (no transparency tag) |
+
+**Provider / Distributor-Importer / Product Manufacturer options:**
+
+| Selection | Tag |
+|-----------|-----|
+| Interacting directly with people | Transparency: Natural Persons |
+| Generating synthetic audio, image, video or text content | Transparency: Synthetic Content |
 | None of the above | (no transparency tag) |
 
 Multiple selections are possible — assign all matching tags.
