@@ -4,8 +4,11 @@
   "version": "0.1.0",
   "author": {
     "name": "Deniz Wetz",
-    "email": "deniz.wetz@cyberagentic.de"
+    "email": "deniz.wetz@cybercomply.ai",
+    "url": "https://cybercomply.ai"
   },
+  "homepage": "https://github.com/cyberagentic/compliance-checks",
+  "repository": "https://github.com/cyberagentic/compliance-checks",
   "license": "Proprietary. See LICENSE.txt for terms.",
   "keywords": [
     "compliance",
