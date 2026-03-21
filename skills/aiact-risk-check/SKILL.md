@@ -123,38 +123,46 @@ Ask: "Does the AI system make autonomous decisions that significantly affect peo
 
 ### Question 5 — Transparency Functions (Role-Dependent)
 
-Show different options depending on the role selected in Q2. Ask the user to select ALL that apply.
+Show different options depending on the role selected in Q2. This is a **multiple-choice question** — the user may select **more than one option**. Present it explicitly as multi-select (e.g. "Select all that apply — you can choose multiple options"). "None of the above" is mutually exclusive with all other options.
+
+**CRITICAL: Each role has its OWN set of options. You MUST show ONLY the options listed for the user's role. Do NOT mix options across roles. Deployers have DIFFERENT options than Providers. Verify the role from Q2 before presenting options.**
 
 **If Q2 = Deployer:**
 
-| Option | Description |
-|--------|-------------|
-| Generating or manipulating image, audio or video content constituting a deep fake | e.g., face swaps, synthetic video impersonation |
-| Generating or manipulating text published to inform the public on matters of public interest | e.g., AI-generated news articles, public information summaries |
-| Emotion recognition or biometric categorisation | e.g., sentiment analysis from face/voice, biometric sorting |
-| None of the above | No transparency-relevant functions |
+| # | Option | Description |
+|---|--------|-------------|
+| A | Generating or manipulating image, audio or video content constituting a deep fake | e.g., face swaps, synthetic video impersonation |
+| B | Generating or manipulating text published to inform the public on matters of public interest | e.g., AI-generated news articles, public information summaries |
+| C | Emotion recognition or biometric categorisation | e.g., sentiment analysis from face/voice, biometric sorting |
+| D | None of the above | No transparency-relevant functions |
+
+The user may select e.g. "A and C" or "A, B, C". If "D" is selected, no other option may be combined.
 
 **If Q2 = Provider:**
 
-| Option | Description |
-|--------|-------------|
-| Interacting directly with people | e.g., chatbot, voice assistant, virtual agent |
-| Generating synthetic audio, image, video or text content | e.g., AI-generated content, text synthesis |
-| None of the above | No transparency-relevant functions |
+| # | Option | Description |
+|---|--------|-------------|
+| A | Interacting directly with people | e.g., chatbot, voice assistant, virtual agent |
+| B | Generating synthetic audio, image, video or text content | e.g., AI-generated content, text synthesis |
+| C | None of the above | No transparency-relevant functions |
+
+The user may select e.g. "A and B". If "C" is selected, no other option may be combined.
 
 **If Q2 = Distributor / Importer or Product Manufacturer:**
 
-| Option | Description |
-|--------|-------------|
-| Interacting directly with people | e.g., chatbot, voice assistant, virtual agent |
-| Generating synthetic audio, image, video or text content | e.g., AI-generated content, text synthesis |
-| None of the above | No transparency-relevant functions |
+| # | Option | Description |
+|---|--------|-------------|
+| A | Interacting directly with people | e.g., chatbot, voice assistant, virtual agent |
+| B | Generating synthetic audio, image, video or text content | e.g., AI-generated content, text synthesis |
+| C | None of the above | No transparency-relevant functions |
+
+The user may select e.g. "A and B". If "C" is selected, no other option may be combined.
 
 ---
 
 ## PHASE 2: Simplified Classification
 
-Load the compact decision tree from [references/decision-tree-compact.md](references/decision-tree-compact.md) and walk through each step in order.
+Load the decision tree from [references/decision-tree.md](references/decision-tree.md) and walk through each step in order.
 
 **IMPORTANT: Do NOT show the classification walkthrough or decision logic in the chat. Process everything internally and only output the final report.**
 
@@ -258,9 +266,10 @@ For each tag assigned during classification, include the corresponding obligatio
 - Art. 23 EU AI Act | Importer obligations for high-risk AI | Comply with all importer obligations under Article 23
 - Art. 24 EU AI Act | Distributor obligations for high-risk AI | Comply with all distributor obligations under Article 24
 
-**"Notify NCA":**
+**"Notify NCA" (ONLY applicable when effectiveRole = provider):**
 - Art. 49(2) EU AI Act | Registration in EU database | Register the system in the EU database before placing on market or putting into service
 - Art. 6(4) EU AI Act | Documentation of assessment | Document the assessment that the system does not pose a significant risk and provide this documentation to the NCA upon request
+- **Do NOT assign this tag if the entity is a deployer, distributor, importer, or product manufacturer.**
 
 **"GPAI":**
 - Art. 53 EU AI Act | GPAI model obligations | Comply with general-purpose AI model obligations: technical documentation, information to downstream providers, copyright compliance, and transparency.
@@ -294,5 +303,6 @@ For each tag assigned during classification, include the corresponding obligatio
 - Do NOT add disclaimers or general EU AI Act explanations beyond the template.
 - Do NOT add traffic-light groupings, decision paths, or result tables.
 - List ALL applicable obligations based on ALL tags assigned during classification.
+- **ONLY include obligations that are explicitly listed in the Tag → Obligations mapping above. Do NOT invent, paraphrase, soften, or add "advisory" obligations that are not in the mapping. If a tag was not assigned, its obligations MUST NOT appear in the output.**
 - Each obligation row uses the format: `| Art. X EU AI Act | Title | Description |`
 - Keep the output to: header, risk category with explanation, applicable obligations, and note.

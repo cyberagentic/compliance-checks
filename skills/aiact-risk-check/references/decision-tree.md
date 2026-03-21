@@ -60,7 +60,7 @@ Input: `significantRisk` (from Q4 — conditional question, only asked for Annex
 |-------|--------|-----------|
 | Makes autonomous decisions or profiles people | Add tag "High-risk". If `effectiveRole` is NOT "provider" → add tag "Become a Provider", set `effectiveRole` = "provider" | → C4 |
 | Unsure | Add tag "High-risk". If `effectiveRole` is NOT "provider" → add tag "Become a Provider", set `effectiveRole` = "provider" | → C4 |
-| Only prepares information for human decisions | If `effectiveRole` is "provider" → add tag "Notify NCA" | → C4 |
+| Only prepares information for human decisions | **ONLY if `effectiveRole` = "provider":** add tag "Notify NCA". **If `effectiveRole` is deployer, distributorImporter, or productManufacturer: do NOT add any tag — no "Notify NCA", no "High-risk".** | → C4 |
 
 ## Step C3 — Product Manufacturer Check
 
@@ -113,6 +113,8 @@ Use field: `systemFunctions` (from Q5)
 Source: Article 50
 
 Direct mapping from user input — no inference needed. Options are role-dependent (see Q5 in SKILL.md).
+
+**CRITICAL: Use ONLY the mapping table that matches the user's role from Q2. A Deployer can NEVER receive "Transparency: Natural Persons" or "Transparency: Synthetic Content" tags — those are Provider-only. A Provider can NEVER receive "Transparency: Deep Fake", "Transparency: Public Interest Text", or "Transparency: Emotion & Biometric" tags — those are Deployer-only.**
 
 **Deployer options:**
 
