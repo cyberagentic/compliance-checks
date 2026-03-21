@@ -1,7 +1,7 @@
 {
   "name": "compliance-checks",
   "description": "Structured compliance assessments for EU regulations. Includes DPA review (Art. 28 GDPR), TOM assessment (Art. 32 GDPR), GDPR risk check, EU AI Act risk classification, and NIS-2 applicability assessment, all with traffic-light reports.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": {
     "name": "Deniz Wetz",
     "email": "deniz.wetz@cybercomply.ai",
@@ -20,13 +20,11 @@
     "risk-classification",
     "regulatory",
     "dpa",
-    "auftragsverarbeitung",
     "art-28",
     "tom",
     "art-32",
     "technical-organizational-measures",
     "nis2",
-    "nis-2",
-    "network-information-security"
+    "nis-2"
   ]
 }
