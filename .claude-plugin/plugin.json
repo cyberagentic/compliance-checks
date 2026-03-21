@@ -1,5 +1,5 @@
 {
-  "name": "compliance-and-risk",
+  "name": "compliance-checks",
   "description": "Structured compliance assessments for EU regulations. Includes DPA review (Art. 28 GDPR), TOM assessment (Art. 32 GDPR), GDPR risk check, EU AI Act risk classification, and NIS-2 applicability assessment, all with traffic-light reports.",
   "version": "0.1.0",
   "author": {

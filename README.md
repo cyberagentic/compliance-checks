@@ -1,4 +1,4 @@
-# Compliance & Risk Plugin
+# Compliance Checks
 
 An AI-powered compliance assessment toolkit for data protection and regulatory teams. Automates DPA reviews, TOM assessments, GDPR cloud service checks, and EU AI Act risk classifications — producing structured, traffic-light reports against legal requirements.
 
@@ -31,7 +31,7 @@ claude plugins add cyberagentic/compliance-plugin
 Review a Data Processing Agreement for Art. 28 GDPR compliance.
 
 ```
-/compliance-and-risk:dpa-check
+/compliance-checks:dpa-check
 ```
 
 **Accepts:** PDF upload, Word/DOCX upload, or pasted contract text.
@@ -57,7 +57,7 @@ Review a Data Processing Agreement for Art. 28 GDPR compliance.
 Assess a Technical and Organizational Measures document against Art. 32 GDPR.
 
 ```
-/compliance-and-risk:tom-check
+/compliance-checks:tom-check
 ```
 
 **Accepts:** PDF upload, Word/DOCX upload, or pasted text (TOM annex, security concept, or standalone TOM description).
@@ -86,7 +86,7 @@ Assess a Technical and Organizational Measures document against Art. 32 GDPR.
 Quick GDPR compliance assessment for introducing a cloud service.
 
 ```
-/compliance-and-risk:gdpr-check
+/compliance-checks:gdpr-check
 ```
 
 **What it does:**
@@ -109,7 +109,7 @@ Quick GDPR compliance assessment for introducing a cloud service.
 Classify an AI system under the EU AI Act and map likely applicable obligations.
 
 ```
-/compliance-and-risk:aiact-risk-check
+/compliance-checks:aiact-risk-check
 ```
 
 **What it does:**
@@ -145,7 +145,7 @@ Upload a DPA and indicate there's a third-country nexus. The check applies enhan
 ## File Structure
 
 ```
-compliance-and-risk/
+compliance-checks/
 ├── .claude-plugin/
 │   └── plugin.json
 ├── README.md
