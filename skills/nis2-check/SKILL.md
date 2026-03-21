@@ -15,6 +15,11 @@ Before performing any assessment, read the compressed NIS-2 criteria:
 
 This file contains the authoritative scope rules, sector lists (Annex I + II), size thresholds, exceptions, and the decision flowchart you must follow.
 
+For sector matching in manufacturing and health/pharma, consult the detailed NACE code reference:
+→ `references/nace-rev2-nis2.md`
+
+This file contains the complete NACE Rev. 2 class-level breakdown for all divisions referenced by NIS-2 (C21, C26–C30). Use it to match an entity's specific economic activities to the correct NACE class and NIS-2 Annex sector.
+
 ---
 
 ## Workflow
@@ -33,29 +38,27 @@ They may **optionally** provide:
 
 **If a website URL is given**, fetch the following pages (try common paths, adapt to the site's language and structure):
 
-1. **Impressum / Legal notice / Imprint** — for the registered company name, legal form, registered address, and sometimes registry numbers
-2. **About us / Über uns / Company / Who we are** — for business description, activities, products/services, employee count, group structure
+1. **Impressum / Legal notice / Imprint** — for the entity name and country
+2. **About us / Über uns / Company / Who we are** — for business description, activities, products/services, employee count
 3. **Homepage** — for high-level description of what the entity does
 
 Use `web_fetch` on the provided URL first, then try appending common paths like `/impressum`, `/imprint`, `/legal-notice`, `/about`, `/about-us`, `/company`, `/ueber-uns`, `/unternehmen`, `/kontakt` to discover more information. Not every path will work — that is fine, just use what you find. Do not try more than 6-8 page fetches total to keep things efficient.
 
-**Extract or infer the following data points:**
+**Extract or infer the following data points (these are the only fields needed for the Entity Profile):**
 
 | Data Point | Source Priority |
 |---|---|
-| Legal entity name | Impressum > About page |
-| Country of establishment | Impressum (registered address) |
-| Main business activity | About page / homepage (infer from products, services, self-description) |
+| Entity name | Impressum > About page |
+| Country | Impressum (registered address — country only, not full address) |
+| Main activity | About page / homepage (infer from products, services, self-description) |
 | Sector & subsector mapping | Infer from activity → match to Annex I / Annex II categories |
-| Employee count | About page (often mentioned as "X employees" / "team of X" / "Xmitarbeiter") — if not found, mark as UNKNOWN |
-| Turnover / Balance sheet | Rarely on websites — mark as UNKNOWN unless user provides or site states |
-| Group membership | Check if entity mentions a parent company or group — relevant for size calculation |
+| Entity size | Employee count + turnover. Employee count from About page (often "X employees" / "team of X" / "X Mitarbeiter"). Turnover rarely on websites — mark as UNKNOWN unless user provides or site states. If entity is a subsidiary, note that the parent group's size may apply. |
 
 **Important inference rules:**
 - Be transparent about what is inferred vs. what is stated. Always label assumptions clearly.
 - When the main activity could map to multiple sectors, list all plausible mappings and note the ambiguity.
 - If employee count is not findable, explain that the user needs to provide it for a definitive size assessment, but still proceed with the sector analysis.
-- If the entity appears to be a subsidiary, note that the parent group's size may apply.
+- Only extract the 5 data points listed above. Do not include legal form, registration numbers, VAT IDs, management names, board members, or detailed address information in the Entity Profile — these are not needed for the NIS-2 scope assessment.
 
 ### Step 2 — Assess Scope Applicability
 
@@ -63,7 +66,14 @@ Follow the decision flowchart from `references/nis2-criteria.md` Section 7 stric
 
 1. **Sector match**: Does the entity's main activity fall within any Annex I or Annex II sector? Map the activity to specific sector → subsector → entity type. Be precise — quote the matching entity type definition from the extract.
 
-2. **Size-independent check**: Does Article 2(2)–(4) apply? Check whether the entity is:
+2. **Size threshold check**: Does the entity meet the medium-sized enterprise threshold?
+   - ≥ 50 employees, OR
+   - Annual turnover > €10 million, OR
+   - Annual balance sheet total > €10 million
+
+   If unknown, clearly state what information is missing and provide conditional conclusions (e.g., "IF the entity has ≥50 employees, THEN…").
+
+3. **Size-independent check**: Does Article 2(2)–(4) apply? Check whether the entity is:
    - A telecom network/service provider
    - A trust service provider
    - A TLD registry or DNS service provider
@@ -71,15 +81,8 @@ Follow the decision flowchart from `references/nis2-criteria.md` Section 7 stric
    - A sole provider of a critical service
    - A critical entity under the CER Directive
    - A central/regional government public administration entity
-   
-   If yes → in scope regardless of size.
 
-3. **Size threshold check**: If not size-independent, does the entity meet the medium-sized enterprise threshold?
-   - ≥ 50 employees, OR
-   - Annual turnover > €10 million, OR
-   - Annual balance sheet total > €10 million
-   
-   If unknown, clearly state what information is missing and provide conditional conclusions (e.g., "IF the entity has ≥50 employees, THEN…").
+   If yes → in scope regardless of size.
 
 4. **Exclusion check**: Does any exclusion apply?
    - Predominantly national security / defence / law enforcement activities
@@ -109,13 +112,6 @@ Output a structured English-language report with the following sections:
 ```
 ## NIS-2 Applicability Assessment
 
-### Entity Profile
-- **Entity name:** [name from impressum or user input]
-- **Country:** [country]
-- **Main activity:** [description]
-- **Sector mapping:** [Annex I/II sector → subsector → entity type]
-- **Entity size:** [known data or "Unknown — user input required"]
-
 **NIS-2 Applicability: [Symbol] [Classification]**
 
 | Criterion | Result |
@@ -130,31 +126,76 @@ Output a structured English-language report with the following sections:
 - If NOT IN SCOPE (🟢): "Based on the available information, this entity does not fall within the scope of the NIS-2 Directive."
 - If CONDITIONAL (⚠️): "The classification depends on missing information. Provide the requested data for a definitive assessment."]
 
+### Entity Profile
+
+| Field | Value |
+|---|---|
+| Entity name | [name from impressum or user input] |
+| Country | [country] |
+| Main activity | [description] |
+| Sector mapping | [Annex I/II sector → subsector → entity type] |
+| Entity size | [employees, turnover or "Unknown — user input required"] |
+
 ### Reasoning Summary
 [2-3 sentence plain-English summary of why the entity is or is not in scope]
 
 ### Data Sources & Assumptions
-[List what was extracted from the website vs. what was assumed/inferred. Be explicit.]
+
+| Data Point | Source | Confidence |
+|---|---|---|
+| Entity name | [source] | HIGH / MEDIUM / LOW |
+| Country | [source] | HIGH / MEDIUM / LOW |
+| Main activity | [source] | HIGH / MEDIUM / LOW |
+| Sector mapping | [source — typically inferred from activity] | HIGH / MEDIUM / LOW |
+| Employee count | [source or "UNKNOWN"] | HIGH / MEDIUM / LOW |
+| Annual turnover | [source or "UNKNOWN"] | HIGH / MEDIUM / LOW |
+| Group structure | [source or "UNKNOWN"] | HIGH / MEDIUM / LOW |
 
 ### Applicability Analysis
 
 #### 1. Sector Match
-[Explain which Annex I or II sector(s) the entity maps to, or why it does not match any]
 
-#### 2. Size-Independent Criteria
-[Check each criterion from Article 2(2)-(4), state whether applicable]
+| Activity | Annex Sector | NACE Code |
+|---|---|---|
+| [entity activity] | [Annex I/II sector reference] | [code] |
 
-#### 3. Size Assessment
-[State known size data; if incomplete, provide conditional analysis]
+[1-2 sentences explaining the mapping]
+
+#### 2. Size Assessment
+
+| Threshold | Required | Actual | Met |
+|---|---|---|---|
+| Medium-sized (in-scope) | ≥ 50 employees OR turnover > €10M | [entity data] | ✅ / ❌ / UNKNOWN |
+| Large enterprise | ≥ 250 employees OR turnover > €50M | [entity data] | ✅ / ❌ / UNKNOWN |
+
+[1-2 sentences on classification logic]
+
+#### 3. Size-Independent Criteria
+
+| Criterion | Applicable |
+|---|---|
+| Public electronic communications provider | YES / NO |
+| Trust service provider | YES / NO |
+| TLD name registry | YES / NO |
+| DNS service provider | YES / NO |
+| Domain name registration service | YES / NO |
+| Sole provider of critical service | YES / NO / UNKNOWN |
+| Critical entity under CER Directive | YES / NO / UNKNOWN |
+| Central/regional government entity | YES / NO |
 
 #### 4. Exclusions
-[Check and state whether any exclusion applies]
+
+| Exclusion | Applicable |
+|---|---|
+| National security/defence/law enforcement | YES / NO |
+| Covered by DORA (financial sector) | YES / NO |
+| Diplomatic/consular missions | YES / NO |
 
 ### Missing Information
-[List any data points the user should provide or verify for a definitive assessment]
+[List the 3-5 most important data points the user should provide or verify for a definitive assessment]
 
 ### Recommendations
-[Practical next steps — e.g., verify employee count, check group structure, consult national transposition law]
+[3-5 practical next steps — e.g., verify employee count, check group structure, consult national transposition law]
 ```
 
 ---
