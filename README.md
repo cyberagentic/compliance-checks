@@ -13,7 +13,7 @@ Assess GDPR compliance for new applications with `/gdpr-risk-check`, review Data
 ## Installation
 
 ```
-claude plugins add cyberagentic/compliance-plugin
+claude plugins add github:cyberagentic/compliance-checks
 ```
 
 ## Skills
