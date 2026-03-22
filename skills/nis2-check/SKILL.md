@@ -16,7 +16,7 @@ Before performing any assessment, read the compressed NIS-2 criteria:
 This file contains the authoritative scope rules, sector lists (Annex I + II), size thresholds, exceptions, and the decision flowchart you must follow.
 
 For sector matching in manufacturing and health/pharma, consult the detailed NACE code reference:
-→ `references/nace-rev2-nis2.md`
+→ `references/nis2-nace-rev2.md`
 
 This file contains the complete NACE Rev. 2 class-level breakdown for all divisions referenced by NIS-2 (C21, C26–C30). Use it to match an entity's specific economic activities to the correct NACE class and NIS-2 Annex sector.
 

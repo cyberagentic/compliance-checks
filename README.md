@@ -187,7 +187,8 @@ compliance-checks/
     ├── nis2-check/
     │   ├── SKILL.md
     │   └── references/
-    │       └── nis2-criteria.md
+    │       ├── nis2-criteria.md
+    │       └── nis2-nace-rev2.md
     ├── aiact-risk-check/
     │   ├── SKILL.md
     │   └── references/
