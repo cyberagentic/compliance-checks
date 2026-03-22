@@ -1,6 +1,6 @@
 # Compliance Checks
 
-**Automate EU regulatory assessments and get structured first-pass compliance checks. No legal background required.**
+**Automate EU regulatory assessments and get structured first-pass compliance checks.**
 
 EU regulatory compliance checks covering NIS-2 applicability, EU AI Act risk classification, GDPR risk assessment for applications, DPA (Data Processing Agreement) review, and TOM (Technical and Organizational Measures) review — all producing structured RED/YELLOW/GREEN reports against legal requirements.
 
