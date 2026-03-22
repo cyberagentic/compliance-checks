@@ -1,8 +1,8 @@
 # Compliance Checks
 
-Speed up EU regulatory assessments, document reviews, and compliance workflows for DPOs, legal, and governance teams.
+Automate EU regulatory assessments and get structured first-pass compliance checks — no legal background required.
 
-EU regulatory compliance checks covering NIS-2 applicability, EU AI Act risk classification, GDPR risk assessment for applications, DPA (Data Processing Agreement) review, and TOM (Technical and Organizational Measures) review — all producing structured RED/YELLOW/GREEN reports against legal requirements. Built for Data Protection Officers, compliance teams, in-house counsel, and AI governance teams.
+EU regulatory compliance checks covering NIS-2 applicability, EU AI Act risk classification, GDPR risk assessment for applications, DPA (Data Processing Agreement) review, and TOM (Technical and Organizational Measures) review — all producing structured RED/YELLOW/GREEN reports against legal requirements.
 
 Use `/nis2-check` to determine whether an entity falls within NIS-2 scope as essential or important entity. Use `/aiact-risk-check` to classify an AI system's risk category and map applicable EU AI Act obligations.
 
