@@ -1,6 +1,6 @@
 # Compliance Checks
 
-**AI conducts EU regulatory assessments and provides structured first-pass compliance checks.**
+**Conduct EU regulatory assessments and receive structured first-pass compliance checks.**
 
 EU regulatory compliance checks covering NIS-2 applicability, EU AI Act risk classification, GDPR risk assessment for applications, DPA (Data Processing Agreement) review, and TOM (Technical and Organizational Measures) review — all producing structured RED/YELLOW/GREEN reports against legal requirements.
 
