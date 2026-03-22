@@ -1,6 +1,6 @@
 # Compliance Checks
 
-Automate EU regulatory assessments and get structured first-pass compliance checks — no legal background required.
+**Automate EU regulatory assessments and get structured first-pass compliance checks. No legal background required.**
 
 EU regulatory compliance checks covering NIS-2 applicability, EU AI Act risk classification, GDPR risk assessment for applications, DPA (Data Processing Agreement) review, and TOM (Technical and Organizational Measures) review — all producing structured RED/YELLOW/GREEN reports against legal requirements.
 
@@ -8,7 +8,7 @@ Use `/nis2-check` to determine whether an entity falls within NIS-2 scope as ess
 
 Assess GDPR compliance for new applications with `/gdpr-risk-check`, review Data Processing Agreements clause-by-clause with `/dpa-check`, and evaluate Technical and Organizational Measures against Art. 32 GDPR with `/tom-check`.
 
-**Disclaimer**: This plugin assists with compliance workflows but does not provide legal advice. All assessments should be reviewed by qualified legal professionals. Regulatory requirements change frequently; always verify current requirements with authoritative sources.
+**Disclaimer**: This plugin assists with compliance workflows but does not provide legal advice. All assessments should be reviewed by qualified professionals. Regulatory requirements change frequently; always verify current requirements with authoritative sources.
 
 ## Installation
 
