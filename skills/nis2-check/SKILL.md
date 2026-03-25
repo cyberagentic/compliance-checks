@@ -26,23 +26,27 @@ This file contains the complete NACE Rev. 2 class-level breakdown for all divisi
 
 ### Step 1 — Gather Entity Information
 
-The user provides **at minimum** one of:
-- A company website URL
-- A company name + country
-
-They may **optionally** provide:
+The user provides a **company website URL** (preferred). If the user only provides a company name or description without a URL, ask them for the website URL first. If they cannot provide a URL, fall back to manual intake — ask the user to provide at minimum:
+- Entity name
+- Country
 - Main business activity / sector
-- Number of employees
+- Number of employees OR annual turnover (€)
+
+In manual intake mode, work exclusively with the data provided by the user. Do not use `web_search` or `web_fetch` to look up additional information.
+
+They may **optionally** also provide:
 - Annual turnover (€)
 - Annual balance sheet total (€)
 
-**If a website URL is given**, fetch the following pages (try common paths, adapt to the site's language and structure):
+**Fetch the following pages from the website** (try common paths, adapt to the site's language and structure):
 
 1. **Impressum / Legal notice / Imprint** — for the entity name and country
 2. **About us / Über uns / Company / Who we are** — for business description, activities, products/services, employee count
 3. **Homepage** — for high-level description of what the entity does
 
 Use `web_fetch` on the provided URL first, then try appending common paths like `/impressum`, `/imprint`, `/legal-notice`, `/about`, `/about-us`, `/company`, `/ueber-uns`, `/unternehmen`, `/kontakt` to discover more information. Not every path will work — that is fine, just use what you find. Do not try more than 6-8 page fetches total to keep things efficient.
+
+**Important: Only use the provided website as data source.** Do not use `web_search` or fetch external sources (e.g., LinkedIn, ZoomInfo, RocketReach, company databases). If information is not available on the entity's own website, mark it as UNKNOWN rather than searching elsewhere. This keeps data sources transparent and verifiable.
 
 **Extract or infer the following data points (these are the only fields needed for the Entity Profile):**
 
@@ -126,6 +130,9 @@ Output a structured English-language report with the following sections:
 - If NOT IN SCOPE (🟢): "Based on the available information, this entity does not fall within the scope of the NIS-2 Directive."
 - If CONDITIONAL (⚠️): "The classification depends on missing information. Provide the requested data for a definitive assessment."]
 
+### Reasoning Summary
+[2-3 sentence plain-English summary of why the entity is or is not in scope]
+
 ### Entity Profile
 
 | Field | Value |
@@ -135,9 +142,6 @@ Output a structured English-language report with the following sections:
 | Main activity | [description] |
 | Sector mapping | [Annex I/II sector → subsector → entity type] |
 | Entity size | [employees, turnover or "Unknown — user input required"] |
-
-### Reasoning Summary
-[2-3 sentence plain-English summary of why the entity is or is not in scope]
 
 ### Data Sources & Assumptions
 
@@ -170,32 +174,27 @@ Output a structured English-language report with the following sections:
 
 [1-2 sentences on classification logic]
 
-#### 3. Size-Independent Criteria
+#### 3. Size-Independent Criteria & Exclusions
+
+If ALL size-independent criteria are NO and ALL exclusions are NO, output a single line:
+"No size-independent criteria or exclusions apply."
+
+If at least one criterion or exclusion is YES or UNKNOWN, show only those rows (omit all NO rows), followed by a compact paragraph explaining the impact on classification:
 
 | Criterion | Applicable |
 |---|---|
-| Public electronic communications provider | YES / NO |
-| Trust service provider | YES / NO |
-| TLD name registry | YES / NO |
-| DNS service provider | YES / NO |
-| Domain name registration service | YES / NO |
-| Sole provider of critical service | YES / NO / UNKNOWN |
-| Critical entity under CER Directive | YES / NO / UNKNOWN |
-| Central/regional government entity | YES / NO |
-
-#### 4. Exclusions
+| [only rows that are YES or UNKNOWN] |
 
 | Exclusion | Applicable |
 |---|---|
-| National security/defence/law enforcement | YES / NO |
-| Covered by DORA (financial sector) | YES / NO |
-| Diplomatic/consular missions | YES / NO |
+| [only rows that are YES or UNKNOWN] |
+
+[1-2 sentences explaining what each YES/UNKNOWN means for the classification. E.g.: "DNS service providers are in scope regardless of size and classified as essential (Article 3(1)(b)). CER Directive status could not be determined — if confirmed, the entity would also qualify as essential."]
+
+If only criteria have YES/UNKNOWN rows but no exclusions (or vice versa), omit the empty table entirely.
 
 ### Missing Information
-[List the 3-5 most important data points the user should provide or verify for a definitive assessment]
-
-### Recommendations
-[3-5 practical next steps — e.g., verify employee count, check group structure, consult national transposition law]
+[List the 3-5 most important data points the user should provide or verify for a definitive assessment. Only include entity-specific data gaps (e.g., unverified employee count, missing turnover figure, unclear group structure). Do not include generic items that apply to every NIS-2 entity (e.g., "check national transposition law", "assess ICT/OT systems").]
 ```
 
 ---
