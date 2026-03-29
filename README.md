@@ -2,11 +2,13 @@
 
 **Conduct EU regulatory assessments and receive structured first-pass compliance checks.**
 
-EU regulatory compliance checks covering NIS-2 applicability, EU AI Act risk classification, GDPR risk assessment for applications, DPA (Data Processing Agreement) review, and TOM (Technical and Organizational Measures) review — all producing structured RED/YELLOW/GREEN reports against legal requirements.
+EU regulatory compliance checks covering NIS-2 applicability, EU AI Act risk classification, GDPR risk assessment for applications, DPA (Data Processing Agreement) review, TOM (Technical and Organizational Measures) review, and AI system security assessment against ISO 27001 and ISO 42001 — all producing structured RED/YELLOW/GREEN reports against legal requirements.
 
 Use `/nis2-check` to determine whether an entity falls within NIS-2 scope as essential or important entity. Use `/aiact-risk-check` to classify an AI system's risk category and map applicable EU AI Act obligations.
 
 Assess GDPR compliance for new applications with `/gdpr-risk-check`, review Data Processing Agreements clause-by-clause with `/dpa-check`, and evaluate Technical and Organizational Measures against Art. 32 GDPR with `/tom-check`.
+
+Check AI system security documentation against ISO 27001 and ISO 42001 controls with `/ai-security-check`.
 
 **Disclaimer**: This plugin assists with compliance workflows but does not provide legal advice. All assessments should be reviewed by qualified professionals. Regulatory requirements change frequently; always verify current requirements with authoritative sources.
 
@@ -25,6 +27,7 @@ claude plugins add github:cyberagentic/compliance-checks
 | **gdpr-risk-check** | GDPR risk check for new applications and systems. Assesses 8 compliance dimensions and determines risk category. |
 | **tom-check** | Assesses Technical and Organizational Measures against 12 check points aligned to Art. 32 GDPR and ISO 27001. Accepts PDF, Word, or pasted text. |
 | **dpa-check** | Reviews a Data Processing Agreement against 9 mandatory check points from Art. 28 GDPR. Accepts PDF, Word, or pasted text. |
+| **ai-security-check** | Assesses AI system security documentation against 11 check points derived from ISO 27001 and ISO 42001 controls. Accepts PDF, Word, or pasted text. |
 
 ## NIS-2 Check
 
@@ -118,6 +121,34 @@ Assess a Technical and Organizational Measures document against Art. 32 GDPR.
 - Availability & recovery
 - Deletion & storage limitation
 
+## AI Security Check
+
+Assess an AI system's security documentation against ISO 27001 and ISO 42001 controls.
+
+```
+/ai-security-check
+```
+
+**Accepts:** PDF upload, Word/DOCX upload, or pasted text (security concept, ISMS documentation, AI system security documentation, or similar).
+
+**What it does:**
+1. Accepts the security documentation
+2. Evaluates 11 check points covering ISO 27001 information security controls and ISO 42001 AI-specific controls
+3. Produces a traffic-light report: 🔴 Critical → 🟡 Action Needed → 🟢 Requirement Met
+
+**Check points covered:**
+- Asset management
+- Access control
+- Cryptography
+- Operations security (incl. AI system monitoring and event logging)
+- Communications security
+- System acquisition, development & maintenance (incl. responsible AI design and AI verification)
+- Supplier relationships (incl. AI system deployment)
+- Business continuity
+- Resources for AI systems
+- Assessing impacts of AI systems
+- Data for AI systems
+
 ## DPA Check
 
 Review a Data Processing Agreement for Art. 28 GDPR compliance.
@@ -170,6 +201,12 @@ Review a Data Processing Agreement for Art. 28 GDPR compliance.
 2. Receive a report covering 12 check points from physical security to deletion concepts
 3. Address flagged gaps before signing or renewing the processor contract
 
+### AI Security Assessment
+
+1. Run `/ai-security-check` and upload the security documentation (PDF, Word) or paste the text
+2. Receive a report covering 11 check points from asset management to AI data governance
+3. Address flagged gaps to strengthen your AI system's security posture
+
 ### DPA Review
 
 1. Run `/dpa-check` and upload the Data Processing Agreement (PDF, Word) or paste the text
@@ -201,7 +238,11 @@ compliance-checks/
     │   ├── SKILL.md
     │   └── references/
     │       └── check-requirements.md
-    └── dpa-check/
+    ├── dpa-check/
+    │   ├── SKILL.md
+    │   └── references/
+    │       └── check-requirements.md
+    └── ai-security-check/
         ├── SKILL.md
         └── references/
             └── check-requirements.md

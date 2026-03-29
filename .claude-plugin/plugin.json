@@ -1,6 +1,6 @@
 {
   "name": "compliance-checks",
-  "description": "EU regulatory compliance checks for businesses: NIS-2 applicability assessment, EU AI Act risk classification, GDPR risk check for new applications and systems, TOM assessment (Art. 32 GDPR), and DPA review (Art. 28 GDPR).",
+  "description": "EU regulatory compliance checks for businesses: NIS-2 applicability assessment, EU AI Act risk classification, GDPR risk check for new applications and systems, TOM assessment (Art. 32 GDPR), DPA review (Art. 28 GDPR), and AI system security check (ISO 27001 + ISO 42001).",
   "version": "1.0.0",
   "author": {
     "name": "Deniz Wetz",
@@ -26,6 +26,9 @@
     "technical-organizational-measures",
     "nis2",
     "nis-2",
-    "nis2-applicability"
+    "nis2-applicability",
+    "ai-security-check",
+    "iso-27001",
+    "iso-42001"
   ]
 }
